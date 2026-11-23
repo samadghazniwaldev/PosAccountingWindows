@@ -157,8 +157,6 @@
                                     Click="Shortcuts_Click"/>
                             <Button Content="پشتیبان‌گیری" Style="{StaticResource SuccessButton}" Margin="0,0,8,0"
                                     Click="Backup_Click"/>
-                            <Button Content="تولید داده نمونه" Style="{StaticResource WarningButton}"
-                                    Click="Seed_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>

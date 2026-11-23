@@ -53,7 +53,12 @@
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="2" Margin="4">
                         <TextBlock Text="دسته‌بندی" FontSize="11" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,0,0,3"/>
-                        <ComboBox ItemsSource="{Binding Categories}" Text="{Binding EditCategory, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Content="افزودن دسته‌بندی" Margin="6,0,0,0"
+                                    Command="{Binding DataContext.NavigateToCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="AddCategory"/>
+                            <ComboBox ItemsSource="{Binding Categories}" Text="{Binding EditCategory, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DockPanel>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Margin="4">

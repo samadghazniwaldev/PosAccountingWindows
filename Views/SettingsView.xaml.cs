@@ -77,13 +77,6 @@ public partial class SettingsView : UserControl
         StatusLabel.Visibility = Visibility.Visible;
     }
 
-    private void Seed_Click(object sender, RoutedEventArgs e)
-    {
-        _vm?.SeedSampleData();
-        StatusLabel.Text = _vm?.StatusMessage ?? "";
-        StatusLabel.Visibility = Visibility.Visible;
-    }
-
     private void Shortcuts_Click(object sender, RoutedEventArgs e)
     {
         var win = new ShortcutsWindow { Owner = Window.GetWindow(this) };

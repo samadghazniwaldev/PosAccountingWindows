@@ -66,7 +66,8 @@ public partial class MainViewModel : ObservableObject
                 DashboardVm.LoadData(); break;
             case "Products":
                 CurrentView = ProductsVm; CurrentViewTitle = "کالاها و خدمات";
-                ProductsVm.LoadProducts(); break;
+                ProductsVm.LoadProducts();
+                ProductsVm.LoadCategories(); break;
             case "Customers":
                 CurrentView = CustomersVm; CurrentViewTitle = "مشتریان";
                 CustomersVm.LoadCustomers(); break;
@@ -84,8 +85,11 @@ public partial class MainViewModel : ObservableObject
                 CurrentView = UsersVm; CurrentViewTitle = "مدیریت کاربران";
                 UsersVm.LoadUsers(); break;
             case "Categories":
+            case "AddCategory":
                 CurrentView = CategoriesVm; CurrentViewTitle = "دسته‌بندی کالاها";
-                CategoriesVm.LoadCategories(); break;
+                CategoriesVm.LoadCategories();
+                if (viewName == "AddCategory") CategoriesVm.IsAddPanelOpen = true;
+                break;
             case "Accounting":
                 CurrentView = AccountingVm; CurrentViewTitle = "حسابداری";
                 AccountingVm.LoadData(); break;
