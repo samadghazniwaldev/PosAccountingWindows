@@ -1,10 +1,12 @@
 <Window x:Class="PosAccountingApp.Views.ShortcutsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="تنظیم میانبرهای صفحه‌کلید"
+        xmlns:loc="clr-namespace:PosAccountingApp.Resources"
+        Title="{loc:Localize 'تنظیم میانبرهای صفحه‌کلید'}"
         Width="700" Height="550"
         WindowStartupLocation="CenterOwner"
-        FlowDirection="RightToLeft"
+        FlowDirection="{DynamicResource InterfaceDirection}"
+        Language="{DynamicResource InterfaceLanguage}"
         Background="#FFF0F4F8"
         Icon="{StaticResource AppIcon}">
 
@@ -19,23 +21,23 @@
                 BorderBrush="#FFE0E0E0" BorderThickness="1"
                 VerticalAlignment="Stretch" Margin="20">
             <DockPanel Margin="16">
-                <TextBlock DockPanel.Dock="Top" Text="میانبرهای صفحه‌کلید" FontSize="18" FontWeight="Bold"
+                <TextBlock DockPanel.Dock="Top" Text="{loc:Localize 'میانبرهای صفحه‌کلید'}" FontSize="18" FontWeight="Bold"
                            Foreground="#FF0078D4" Margin="0,0,0,12"/>
 
                 <DataGrid x:Name="ShortcutsGrid" AutoGenerateColumns="False" IsReadOnly="False"
                           CanUserAddRows="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="کلید" Binding="{Binding Key}" Width="120" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="توضیح" Binding="{Binding Description}" Width="*"/>
-                        <DataGridTextColumn Header="عملکرد" Binding="{Binding Action}" Width="150"/>
+                        <DataGridTextColumn Header="{loc:Localize 'کلید'}" Binding="{Binding Key}" Width="120" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="{loc:Localize 'توضیح'}" Binding="{Binding Description}" Width="*"/>
+                        <DataGridTextColumn Header="{loc:Localize 'عملکرد'}" Binding="{Binding Action}" Width="150"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
                 <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center"
                             Margin="0,12,0,0">
-                    <Button Content="ذخیره" Style="{StaticResource PrimaryButton}" Margin="0,0,8,0"
+                    <Button Content="{loc:Localize 'ذخیره'}" Style="{StaticResource PrimaryButton}" Margin="0,0,8,0"
                             Click="Save_Click"/>
-                    <Button Content="بازگشت به پیش‌فرض" Style="{StaticResource WarningButton}"
+                    <Button Content="{loc:Localize 'بازگشت به پیش‌فرض'}" Style="{StaticResource WarningButton}"
                             Click="Reset_Click"/>
                 </StackPanel>
             </DockPanel>

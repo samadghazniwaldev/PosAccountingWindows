@@ -7,13 +7,13 @@
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Vazirmatn, Segoe UI"/>
         <Setter Property="Foreground" Value="#FF333333"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FlowDirection" Value="{DynamicResource InterfaceDirection}"/>
     </Style>
 
     <!-- TextBox -->
     <Style TargetType="TextBox">
         <Setter Property="FontFamily" Value="Vazirmatn, Segoe UI"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FlowDirection" Value="{DynamicResource InterfaceDirection}"/>
         <Setter Property="Padding" Value="8,6"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="#FF333333"/>
@@ -135,7 +135,7 @@
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="#FFE8E8E8"/>
         <Setter Property="FontFamily" Value="Vazirmatn, Segoe UI"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FlowDirection" Value="{DynamicResource InterfaceDirection}"/>
         <Setter Property="CanUserAddRows" Value="False"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
         <Setter Property="SelectionMode" Value="Single"/>
@@ -154,7 +154,7 @@
     <!-- ComboBox -->
     <Style TargetType="ComboBox">
         <Setter Property="FontFamily" Value="Vazirmatn, Segoe UI"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FlowDirection" Value="{DynamicResource InterfaceDirection}"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="#FF333333"/>
         <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
@@ -177,7 +177,7 @@
     <!-- DatePicker -->
     <Style TargetType="DatePicker">
         <Setter Property="FontFamily" Value="Vazirmatn, Segoe UI"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FlowDirection" Value="{DynamicResource InterfaceDirection}"/>
     </Style>
 
     <!-- ListBox -->

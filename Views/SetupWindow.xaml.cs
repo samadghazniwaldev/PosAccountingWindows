@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -5,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using PosAccountingApp.Data;
 using PosAccountingApp.Models;
+using PosAccountingApp.Resources;
 
 namespace PosAccountingApp.Views;
 
@@ -13,6 +15,11 @@ public partial class SetupWindow : Window
     public SetupWindow()
     {
         InitializeComponent();
+        LanguageChoice.SelectionChanged += (_, _) =>
+        {
+            Localizer.Apply(LanguageChoice.SelectedLanguage);
+            ErrorText.Text = string.Empty;
+        };
         BusinessTypeCombo.SelectedIndex = 0;
     }
 
@@ -20,21 +27,21 @@ public partial class SetupWindow : Window
     {
         if (string.IsNullOrWhiteSpace(ShopNameBox.Text))
         {
-            ErrorText.Text = "لطفاً نام فروشگاه را وارد کنید";
+            ErrorText.Text = Translate("لطفاً نام فروشگاه را وارد کنید");
             return;
         }
         if (string.IsNullOrWhiteSpace(PinBox.Text) || PinBox.Text.Length != 4 || !PinBox.Text.All(char.IsDigit))
         {
-            ErrorText.Text = "کد عبور باید دقیقاً ۴ رقم باشد";
+            ErrorText.Text = Translate("کد عبور باید دقیقاً ۴ رقم باشد");
             return;
         }
         if (BusinessTypeCombo.SelectedItem is not ComboBoxItem selectedType)
         {
-            ErrorText.Text = "لطفاً نوع کسب‌وکار را انتخاب کنید";
+            ErrorText.Text = Translate("لطفاً نوع کسب‌وکار را انتخاب کنید");
             return;
         }
 
-        ErrorText.Text = "در حال راه‌اندازی...";
+        ErrorText.Text = Translate("در حال راه‌اندازی...");
 
         try
         {
@@ -65,7 +72,8 @@ public partial class SetupWindow : Window
                 Phone = PhoneBox.Text ?? "",
                 Address = AddressBox.Text ?? "",
                 VatPercentage = decimal.TryParse(VatBox.Text, out var vat) ? vat : 10,
-                IsSetupComplete = true
+                IsSetupComplete = true,
+                InterfaceLanguage = Localizer.Language
             };
 
             var json = System.Text.Json.JsonSerializer.Serialize(settings,
@@ -78,7 +86,7 @@ public partial class SetupWindow : Window
         }
         catch (Exception ex)
         {
-            ErrorText.Text = "خطا: " + ex.Message;
+            ErrorText.Text = Translate("خطا: ") + ex.Message;
         }
     }
 

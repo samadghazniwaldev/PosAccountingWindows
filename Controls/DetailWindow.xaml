@@ -1,18 +1,20 @@
 <Window x:Class="PosAccountingApp.Controls.DetailWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="جزئیات"
+        xmlns:loc="clr-namespace:PosAccountingApp.Resources"
+        Title="{loc:Localize 'جزئیات'}"
         Width="450" Height="500"
         WindowStartupLocation="CenterOwner"
-        FlowDirection="RightToLeft"
+        FlowDirection="{DynamicResource InterfaceDirection}"
+        Language="{DynamicResource InterfaceLanguage}"
         Background="{StaticResource BgBrush}">
 
     <DockPanel Margin="16">
         <Border DockPanel.Dock="Top" Padding="0,0,0,12">
             <Grid>
-                <TextBlock x:Name="TitleText" Text="جزئیات" FontSize="18" FontWeight="Bold"
+                <TextBlock x:Name="TitleText" Text="{loc:Localize 'جزئیات'}" FontSize="18" FontWeight="Bold"
                            Foreground="{StaticResource AccentBrush}" HorizontalAlignment="Right"/>
-                <Button Content="بستن" Style="{StaticResource DangerButton}"
+                <Button Content="{loc:Localize 'بستن'}" Style="{StaticResource DangerButton}"
                         HorizontalAlignment="Left" Padding="12,5"
                         Click="Close_Click"/>
             </Grid>

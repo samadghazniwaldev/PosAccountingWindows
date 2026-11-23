@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.IO;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -18,16 +19,17 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty] private int _selectedThemeIndex = 0;
     [ObservableProperty] private double _fontSize = 14;
     [ObservableProperty] private bool _isHighContrast;
-    [ObservableProperty] private string _currencySymbol = "\u0631\u064A\u0627\u0644";
-    [ObservableProperty] private string _receiptFooter = "\u0628\u0627 \u062A\u0634\u06A9\u0631 \u0627\u0632 \u062E\u0631\u06CC\u062F \u0634\u0645\u0627";
-    [ObservableProperty] private string _receiptHeader = "\u0641\u0627\u06A9\u062A\u0648\u0631 \u0641\u0631\u0648\u0634";
+    [ObservableProperty] private string _currencySymbol = Translate("\u0631\u064A\u0627\u0644");
+    [ObservableProperty] private string _receiptFooter = Translate("\u0628\u0627 \u062A\u0634\u06A9\u0631 \u0627\u0632 \u062E\u0631\u06CC\u062F \u0634\u0645\u0627");
+    [ObservableProperty] private string _receiptHeader = Translate("\u0641\u0627\u06A9\u062A\u0648\u0631 \u0641\u0631\u0648\u0634");
     [ObservableProperty] private string _invoicePrefix = "INV";
     [ObservableProperty] private int _addModeIndex = 2;
     [ObservableProperty] private string _statusMessage = string.Empty;
     [ObservableProperty] private int _selectedProfileIndex = 0;
+    [ObservableProperty] private string _interfaceLanguage = Language;
 
-    public string[] ThemeNames { get; } = ["اقیانوس آبی", "سبز زمردی", "بنفش سلطنتی", "غروب نارنجی", "نیمه‌شب تاریک"];
-    public string[] ProfileNames { get; } = ["سوپرمارکت", "پوشاک", "املاک", "خودرو", "مصالح"];
+    public string[] ThemeNames { get; } = [Translate("اقیانوس آبی"), Translate("سبز زمردی"), Translate("بنفش سلطنتی"), Translate("غروب نارنجی"), Translate("نیمه‌شب تاریک")];
+    public string[] ProfileNames { get; } = [Translate("سوپرمارکت"), Translate("پوشاک"), Translate("املاک"), Translate("خودرو"), Translate("مصالح")];
     public double[] FontSizes { get; } = [10, 12, 14, 16, 18, 20];
     public RoundingMode[] RoundingModes { get; } = Enum.GetValues<RoundingMode>();
 
@@ -52,6 +54,7 @@ public partial class SettingsViewModel : ObservableObject
             InvoicePrefix = s.InvoicePrefix ?? "INV";
             AddModeIndex = s.AddModeIndex;
             SelectedProfileIndex = s.SelectedProfileIndex;
+            InterfaceLanguage = s.InterfaceLanguage;
         }
         catch { }
     }
@@ -108,13 +111,16 @@ public partial class SettingsViewModel : ObservableObject
             s.InvoicePrefix = InvoicePrefix;
             s.AddModeIndex = AddModeIndex;
             s.SelectedProfileIndex = SelectedProfileIndex;
+            s.InterfaceLanguage = InterfaceLanguage;
             s.Save();
 
-            StatusMessage = "\u062A\u0636\u06CC\u0645\u06CC\u0645\u0627\u062A \u0630\u062E\u06CC\u0631\u0647 \u0648 \u0627\u0639\u0645\u0627\u0644 \u0634\u062F";
+            StatusMessage = Translate("\u062A\u0636\u06CC\u0645\u06CC\u0645\u0627\u062A \u0630\u062E\u06CC\u0631\u0647 \u0648 \u0627\u0639\u0645\u0627\u0644 \u0634\u062F");
+            if (InterfaceLanguage != Language)
+                StatusMessage += "\n" + Translate("زبان بعد از راه‌اندازی مجدد اعمال می‌شود.");
         }
         catch (Exception ex)
         {
-            StatusMessage = "\u062E\u0637\u0627: " + ex.Message;
+            StatusMessage = Translate("\u062E\u0637\u0627: ") + ex.Message;
         }
     }
 
@@ -129,7 +135,7 @@ public partial class SettingsViewModel : ObservableObject
         if (File.Exists(dbPath))
         {
             File.Copy(dbPath, backupPath, true);
-            StatusMessage = "\u067E\u0634\u062A\u06CC\u0628\u0627\u0646 \u0630\u062E\u06CC\u0631\u0647 \u0634\u062F";
+            StatusMessage = Translate("\u067E\u0634\u062A\u06CC\u0628\u0627\u0646 \u0630\u062E\u06CC\u0631\u0647 \u0634\u062F");
         }
     }
 }

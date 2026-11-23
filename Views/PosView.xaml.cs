@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -40,11 +41,11 @@ public partial class PosView : UserControl
     private void LoadPaymentMethods()
     {
         PaymentCombo.Items.Clear();
-        PaymentCombo.Items.Add(new ComboBoxItem { Content = "نقدی" });
-        PaymentCombo.Items.Add(new ComboBoxItem { Content = "کارتخوان" });
-        PaymentCombo.Items.Add(new ComboBoxItem { Content = "نسیه" });
-        PaymentCombo.Items.Add(new ComboBoxItem { Content = "اقساطی" });
-        PaymentCombo.Items.Add(new ComboBoxItem { Content = "ترکیبی" });
+        PaymentCombo.Items.Add(new ComboBoxItem { Content = Translate("نقدی") });
+        PaymentCombo.Items.Add(new ComboBoxItem { Content = Translate("کارتخوان") });
+        PaymentCombo.Items.Add(new ComboBoxItem { Content = Translate("نسیه") });
+        PaymentCombo.Items.Add(new ComboBoxItem { Content = Translate("اقساطی") });
+        PaymentCombo.Items.Add(new ComboBoxItem { Content = Translate("ترکیبی") });
         PaymentCombo.SelectedIndex = 0;
     }
 
@@ -180,8 +181,8 @@ public partial class PosView : UserControl
         if (sender is Button btn && btn.Tag is PosCartItem item)
         {
             var result = MessageBox.Show(
-                $"آیا از حذف '{item.ProductTitle}' از سبد اطمینان دارید؟",
-                "تایید حذف", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                Format("آیا از حذف '{0}' از سبد اطمینان دارید؟", item.ProductTitle),
+                Translate("تایید حذف"), MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 _cart.Remove(item);
@@ -209,14 +210,14 @@ public partial class PosView : UserControl
     {
         if (_cart.Count == 0)
         {
-            MessageBox.Show("سبد خرید خالی است", "توجه", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show(Translate("سبد خرید خالی است"), Translate("توجه"), MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
         var total = CalculateTotal();
         var result = MessageBox.Show(
-            $"آیا از ثبت فاکتور به مبلغ {total:N0} ریال اطمینان دارید؟",
-            "تایید فروش", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            Format("آیا از ثبت فاکتور به مبلغ {0:N0} ریال اطمینان دارید؟", total),
+            Translate("تایید فروش"), MessageBoxButton.YesNo, MessageBoxImage.Question);
 
         if (result != MessageBoxResult.Yes) return;
 
@@ -267,7 +268,7 @@ public partial class PosView : UserControl
         catch (Exception ex)
         {
             App.LogError(ex);
-            MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

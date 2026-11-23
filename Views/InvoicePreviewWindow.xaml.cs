@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -24,14 +25,14 @@ public partial class InvoicePreviewWindow : Window
         try
         {
             var s = AppSettings.Load();
-            ShopNameLabel.Text = s.ShopName ?? "فروشگاه";
-            InvoiceNumLabel.Text = $"شماره فاکتور: {_sale.InvoiceNumber}";
-            DateLabel.Text = $"تاریخ: {_sale.CreatedAt:yyyy/MM/dd HH:mm}";
-            SubtotalLabel.Text = $"{_sale.Subtotal:N0} ریال";
-            TaxLabel.Text = $"{_sale.TaxAmount:N0} ریال";
-            TotalLabel.Text = $"{_sale.TotalAmount:N0} ریال";
-            StatusLabel.Text = _sale.Status == SaleStatus.Returned ? "مرجوع شده" : "پرداخت شده";
-            FooterLabel.Text = s.ReceiptFooter ?? "با تشکر از خرید شما";
+            ShopNameLabel.Text = s.ShopName ?? Translate("فروشگاه");
+            InvoiceNumLabel.Text = Format("شماره فاکتور: {0}", _sale.InvoiceNumber);
+            DateLabel.Text = Format("تاریخ: {0:yyyy/MM/dd HH:mm}", _sale.CreatedAt);
+            SubtotalLabel.Text = Format("{0:N0} ریال", _sale.Subtotal);
+            TaxLabel.Text = Format("{0:N0} ریال", _sale.TaxAmount);
+            TotalLabel.Text = Format("{0:N0} ریال", _sale.TotalAmount);
+            StatusLabel.Text = _sale.Status == SaleStatus.Returned ? Translate("مرجوع شده") : Translate("پرداخت شده");
+            FooterLabel.Text = Translate(s.ReceiptFooter ?? "با تشکر از خرید شما");
 
             // Load items
             using var db = DatabaseInitializer.CreateDbContext();
@@ -51,7 +52,7 @@ public partial class InvoicePreviewWindow : Window
     private void Star_Click(object sender, RoutedEventArgs e)
     {
         _isStarred = !_isStarred;
-        StarBtn.Content = _isStarred ? "ستاره‌دار شد" : "ستاره‌دار کردن";
+        StarBtn.Content = _isStarred ? Translate("ستاره‌دار شد") : Translate("ستاره‌دار کردن");
     }
 
     private void Print_Click(object sender, RoutedEventArgs e)
@@ -63,7 +64,8 @@ public partial class InvoicePreviewWindow : Window
             {
                 PageWidth = 842,
                 PageHeight = 595,
-                PagePadding = new Thickness(40)
+                PagePadding = new Thickness(40),
+                FlowDirection = FlowDirection
             };
 
             // Find a font that supports Persian
@@ -75,7 +77,7 @@ public partial class InvoicePreviewWindow : Window
                 : new FontFamily("Segoe UI");
 
             // Title
-            doc.Blocks.Add(new Paragraph(new Run(s.ShopName ?? "فروشگاه") { FontFamily = fontFamily })
+            doc.Blocks.Add(new Paragraph(new Run(s.ShopName ?? Translate("فروشگاه")) { FontFamily = fontFamily })
             {
                 FontSize = 22, FontWeight = FontWeights.Bold,
                 Foreground = new SolidColorBrush(Color.FromRgb(0, 120, 212)),
@@ -104,7 +106,7 @@ public partial class InvoicePreviewWindow : Window
             table.Columns.Add(new TableColumn { Width = new GridLength(1, GridUnitType.Star) });
 
             var headerRow = new TableRow { Background = new SolidColorBrush(Color.FromRgb(0, 120, 212)) };
-            foreach (var h in new[] { "کالا", "تعداد", "قیمت", "جمع" })
+            foreach (var h in new[] { Translate("کالا"), Translate("تعداد"), Translate("قیمت"), Translate("جمع") })
                 headerRow.Cells.Add(new TableCell(new Paragraph(new Run(h) { FontFamily = fontFamily })
                 { Foreground = Brushes.White, FontWeight = FontWeights.Bold, Padding = new Thickness(6) }));
             var hg = new TableRowGroup(); hg.Rows.Add(headerRow); table.RowGroups.Add(hg);
@@ -125,27 +127,27 @@ public partial class InvoicePreviewWindow : Window
             { Foreground = Brushes.LightGray, FontSize = 8, TextAlignment = TextAlignment.Center, Margin = new Thickness(0, 8, 0, 8) });
 
             // Totals
-            doc.Blocks.Add(new Paragraph(new Run($"جمع کل: {_sale.Subtotal:N0} ریال") { FontFamily = fontFamily })
+            doc.Blocks.Add(new Paragraph(new Run(Format("جمع کل: {0:N0} ریال", _sale.Subtotal)) { FontFamily = fontFamily })
             { FontSize = 12, TextAlignment = TextAlignment.Left, Margin = new Thickness(0, 0, 0, 3) });
-            doc.Blocks.Add(new Paragraph(new Run($"مالیات: {_sale.TaxAmount:N0} ریال") { FontFamily = fontFamily })
+            doc.Blocks.Add(new Paragraph(new Run(Format("مالیات: {0:N0} ریال", _sale.TaxAmount)) { FontFamily = fontFamily })
             { FontSize = 11, Foreground = Brushes.Gray, TextAlignment = TextAlignment.Left, Margin = new Thickness(0, 0, 0, 5) });
-            doc.Blocks.Add(new Paragraph(new Run($"مبلغ قابل پرداخت: {_sale.TotalAmount:N0} ریال") { FontFamily = fontFamily })
+            doc.Blocks.Add(new Paragraph(new Run(Format("مبلغ قابل پرداخت: {0:N0} ریال", _sale.TotalAmount)) { FontFamily = fontFamily })
             { FontSize = 15, FontWeight = FontWeights.Bold, TextAlignment = TextAlignment.Left, Margin = new Thickness(0, 5, 0, 10) });
 
             doc.Blocks.Add(new Paragraph(new Run("────────────────────────") { FontFamily = fontFamily })
             { Foreground = Brushes.LightGray, FontSize = 8, TextAlignment = TextAlignment.Center });
-            doc.Blocks.Add(new Paragraph(new Run(s.ReceiptFooter ?? "با تشکر از خرید شما") { FontFamily = fontFamily })
+            doc.Blocks.Add(new Paragraph(new Run(Translate(s.ReceiptFooter ?? "با تشکر از خرید شما")) { FontFamily = fontFamily })
             { FontSize = 11, Foreground = Brushes.Gray, TextAlignment = TextAlignment.Center });
 
             // Print
             var pd = new PrintDialog();
             if (pd.ShowDialog() == true)
-                pd.PrintDocument(((IDocumentPaginatorSource)doc).DocumentPaginator, s.ShopName ?? "فاکتور");
+                pd.PrintDocument(((IDocumentPaginatorSource)doc).DocumentPaginator, s.ShopName ?? Translate("فاکتور"));
         }
         catch (Exception ex)
         {
             App.LogError(ex);
-            MessageBox.Show("خطا در چاپ: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا در چاپ: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using PosAccountingApp.Resources;
 
 namespace PosAccountingApp.Converters;
 
@@ -28,6 +29,7 @@ public class DecimalToPersianStringConverter : IValueConverter
         if (value is decimal d)
         {
             var formatted = d.ToString("N0", CultureInfo.InvariantCulture);
+            if (Localizer.IsEnglish) return formatted;
             return formatted.Aggregate("", (current, c) => current + (char.IsDigit(c) ? PersianDigits[c - '0'] : c));
         }
         return value?.ToString() ?? string.Empty;
@@ -45,6 +47,7 @@ public class JalaliDateConverter : IValueConverter
     {
         if (value is DateTime dt)
         {
+            if (Localizer.IsEnglish) return dt.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture);
             var pc = new System.Globalization.PersianCalendar();
             return $"{pc.GetYear(dt):0000}/{pc.GetMonth(dt):00}/{pc.GetDayOfMonth(dt):00}";
         }
@@ -69,7 +72,7 @@ public class EnumToPersianConverter : IValueConverter
         ["Installments"] = "اقساطی", ["Mixed"] = "ترکیبی",
         // Cheque
         ["Receivable"] = "دریافتی", ["Payable"] = "پرداختی",
-        ["InVault"] = "در صندوق", ["Passed"] = "وصول شده", ["Returned"] = "برگشتی", ["Transferred"] = "منتقل شده",
+        ["InVault"] = "در صندوق", ["Passed"] = "وصول شده", ["Transferred"] = "منتقل شده",
         // Property
         ["Apartment"] = "آپارتمان", ["Villa"] = "ویلایی", ["Commercial"] = "تجاری", ["Land"] = "زمین",
         ["Sale"] = "فروش", ["Rent"] = "اجاره", ["Mortgage"] = "رهن",
@@ -77,16 +80,20 @@ public class EnumToPersianConverter : IValueConverter
         // Vehicle
         ["InShowroom"] = "در نمایشگاه", ["Sold"] = "فروخته شده", ["Reserved"] = "رزرو شده",
         // Expense
-        ["Rent"] = "اجاره", ["Utilities"] = "قبوض", ["Salary"] = "حقوق",
+        ["Utilities"] = "قبوض", ["Salary"] = "حقوق",
         ["Supplies"] = "لوازم", ["Maintenance"] = "تعمیرات", ["Transport"] = "حمل‌ونقل", ["Other"] = "سایر",
         // Ledger
-        ["Charge"] = "شارژ", ["Payment"] = "پرداخت", ["Sale"] = "فروش",
+        ["Charge"] = "شارژ", ["Payment"] = "پرداخت",
         // Roles
         ["SuperAdmin"] = "مدیر ارشد", ["Admin"] = "مدیر", ["Cashier"] = "صندوقدار",
         ["Broker"] = "مشاور", ["Accountant"] = "حسابدار",
         // Status
         ["Normal"] = "عادی", ["Returned"] = "مرجوعی",
         ["Unpaid"] = "پرداخت نشده", ["PartiallyPaid"] = "پرداخت جزئی", ["FullyPaid"] = "پرداخت کامل", ["Overdue"] = "سررسید گذشته",
+        // Loyalty
+        ["Bronze"] = "برنزی", ["Silver"] = "نقره‌ای", ["Gold"] = "طلایی",
+        ["Earn"] = "کسب امتیاز", ["Redeem"] = "استفاده از امتیاز", ["Bonus"] = "امتیاز تشویقی",
+        ["Adjustment"] = "تعدیل امتیاز", ["Expired"] = "منقضی شده",
         // Business
         ["Supermarket"] = "سوپرمارکت", ["Boutique"] = "پوشاک", ["RealEstate"] = "املاک",
         ["CarDealership"] = "خودرو", ["ConstructionMaterials"] = "مصالح ساختمانی",
@@ -95,9 +102,14 @@ public class EnumToPersianConverter : IValueConverter
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is Enum e)
-            return PersianNames.TryGetValue(e.ToString(), out var name) ? name : e.ToString();
-        return value?.ToString() ?? string.Empty;
+        return value is Enum e ? TranslateEnum(e) : value?.ToString() ?? string.Empty;
+    }
+
+    public static string TranslateEnum(Enum value)
+    {
+        if (value is Models.ChequeStatus.Returned) return Localizer.Translate("برگشتی");
+        var name = value.ToString();
+        return PersianNames.TryGetValue(name, out var source) ? Localizer.Translate(source) : name;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

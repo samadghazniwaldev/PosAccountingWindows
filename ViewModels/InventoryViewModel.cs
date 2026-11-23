@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -47,7 +48,7 @@ public partial class InventoryViewModel : ObservableObject
             EmptyStockCount = EmptyStockProducts.Count;
             TotalValue = AllProducts.Sum(p => p.Stock * p.SalePrice);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]

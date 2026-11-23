@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using System.Text;
@@ -31,14 +32,14 @@ public partial class UsersViewModel : ObservableObject
             foreach (var u in db.Users.AsNoTracking().Where(u => u.IsActive).OrderBy(u => u.Name).ToList())
                 Users.Add(u);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     public string GetRoleName(UserRole role) => role switch
     {
-        UserRole.SuperAdmin => "مدیر ارشد", UserRole.Admin => "مدیر",
-        UserRole.Cashier => "صندوقدار", UserRole.Broker => "مشاور",
-        UserRole.Accountant => "حسابدار", _ => role.ToString()
+        UserRole.SuperAdmin => Translate("مدیر ارشد"), UserRole.Admin => Translate("مدیر"),
+        UserRole.Cashier => Translate("صندوقدار"), UserRole.Broker => Translate("مشاور"),
+        UserRole.Accountant => Translate("حسابدار"), _ => role.ToString()
     };
 
     [RelayCommand] private void ToggleAddPanel() { IsAddPanelOpen = !IsAddPanelOpen; }
@@ -55,7 +56,7 @@ public partial class UsersViewModel : ObservableObject
             IsAddPanelOpen = false; EditName = string.Empty; EditPin = string.Empty; EditRole = UserRole.Cashier;
             LoadUsers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -69,7 +70,7 @@ public partial class UsersViewModel : ObservableObject
             if (u != null) { u.IsActive = false; db.SaveChanges(); }
             LoadUsers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() { IsAddPanelOpen = false; EditName = string.Empty; EditPin = string.Empty; EditRole = UserRole.Cashier; }

@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,11 +24,11 @@ public partial class ExpensesView : UserControl
         if (DataContext is ExpensesViewModel vm)
         {
             _vm = vm;
-            PagedGrid.SetTitle("لیست هزینه‌ها");
+            PagedGrid.SetTitle(Translate("لیست هزینه‌ها"));
             PagedGrid.SetColumns(
-                ("Category", "دسته", 120), ("Description", "توضیحات", 250),
-                ("Amount", "مبلغ", 120), ("Date", "تاریخ", 100));
-            PagedGrid.SetHeaders("دسته", "توضیحات", "مبلغ", "تاریخ");
+                ("Category", Translate("دسته"), 120), ("Description", Translate("توضیحات"), 250),
+                ("Amount", Translate("مبلغ"), 120), ("Date", Translate("تاریخ"), 100));
+            PagedGrid.SetHeaders(Translate("دسته"), Translate("توضیحات"), Translate("مبلغ"), Translate("تاریخ"));
             PagedGrid.ItemDoubleClicked += OnItemDoubleClicked;
             RefreshGrid();
         }
@@ -37,7 +38,7 @@ public partial class ExpensesView : UserControl
     {
         if (_vm == null) return;
         var table = new DataTable();
-        table.Columns.Add("Category"); table.Columns.Add("Description");
+        table.Columns.Add("Category", typeof(object)); table.Columns.Add("Description");
         table.Columns.Add("Amount"); table.Columns.Add("Date");
         table.Columns.Add("Id", typeof(int));
         foreach (var e in _vm.Expenses)
@@ -49,7 +50,7 @@ public partial class ExpensesView : UserControl
     {
         if (item is DataRow row)
         {
-            var win = new DetailEditWindow($"هزینه: {row["Description"]}", row, "Expense");
+            var win = new DetailEditWindow(Format("هزینه: {0}", row["Description"]), row, "Expense");
             win.Owner = Window.GetWindow(this);
             if (win.ShowDialog() == true) RefreshGrid();
         }

@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -27,11 +28,11 @@ public partial class PosViewModel : ObservableObject
     // Payment method display names in Farsi
     public Dictionary<PaymentMethod, string> PaymentMethodNames { get; } = new()
     {
-        { PaymentMethod.Cash, "\u0646\u0642\u062F\u06CC" },
-        { PaymentMethod.Card, "\u06A9\u0627\u0631\u062A\u062E\u0648\u0627\u0646" },
-        { PaymentMethod.Ledger, "\u0646\u0633\u06CC\u0647" },
-        { PaymentMethod.Installments, "\u0627\u0642\u0633\u0627\u0637\u06CC" },
-        { PaymentMethod.Mixed, "\u062A\u0631\u06A9\u06CC\u0628\u06CC" }
+        { PaymentMethod.Cash, Translate("\u0646\u0642\u062F\u06CC") },
+        { PaymentMethod.Card, Translate("\u06A9\u0627\u0631\u062A\u062E\u0648\u0627\u0646") },
+        { PaymentMethod.Ledger, Translate("\u0646\u0633\u06CC\u0647") },
+        { PaymentMethod.Installments, Translate("\u0627\u0642\u0633\u0627\u0637\u06CC") },
+        { PaymentMethod.Mixed, Translate("\u062A\u0631\u06A9\u06CC\u0628\u06CC") }
     };
 
     partial void OnBarcodeInputChanged(string value) { SearchProducts(value); }
@@ -96,11 +97,11 @@ public partial class PosViewModel : ObservableObject
     [RelayCommand]
     private void FinalizeSale()
     {
-        if (CartItems.Count == 0) { MessageBox.Show("سبد خرید خالی است", "توجه", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
+        if (CartItems.Count == 0) { MessageBox.Show(Translate("سبد خرید خالی است"), Translate("توجه"), MessageBoxButton.OK, MessageBoxImage.Warning); return; }
 
         var result = MessageBox.Show(
-            $"آیا از ثبت فاکتور به مبلغ {TotalAmount:N0} ریال اطمینان دارید؟",
-            "تایید فروش", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            Format("آیا از ثبت فاکتور به مبلغ {0:N0} ریال اطمینان دارید؟", TotalAmount),
+            Translate("تایید فروش"), MessageBoxButton.YesNo, MessageBoxImage.Question);
 
         if (result != MessageBoxResult.Yes) return;
 
@@ -141,7 +142,7 @@ public partial class PosViewModel : ObservableObject
             CartItems.Clear(); Subtotal = 0; TaxAmount = 0; TotalAmount = 0;
             CustomerPaid = 0; ChangeAmount = 0; CustomerName = string.Empty;
         }
-        catch (Exception ex) { MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error); }
+        catch (Exception ex) { MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error); }
     }
 
     [RelayCommand]

@@ -1,8 +1,10 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using PosAccountingApp.Data;
+using PosAccountingApp.Converters;
 
 namespace PosAccountingApp.Controls;
 
@@ -11,8 +13,9 @@ public partial class PaginatedDataGrid : UserControl
     private DataTable _allData = new();
     private int _currentPage = 1;
     private int _pageSize = 10;
-    private string _title = "گزارش";
+    private string _title = Translate("گزارش");
     private bool _initialized;
+    private static readonly EnumToPersianConverter DisplayConverter = new();
 
     public event Action<object?>? ItemDoubleClicked;
 
@@ -37,17 +40,17 @@ public partial class PaginatedDataGrid : UserControl
             var col = new DataGridTextColumn
             {
                 Header = colDef.Header,
-                Binding = new System.Windows.Data.Binding(colDef.Binding),
+                Binding = new System.Windows.Data.Binding(colDef.Binding) { Converter = DisplayConverter },
                 Width = new DataGridLength(colDef.Width)
             };
             MainGrid.Columns.Add(col);
         }
 
         // Add View/Edit column
-        var viewCol = new DataGridTemplateColumn { Header = "نمایش", Width = 70 };
+        var viewCol = new DataGridTemplateColumn { Header = Translate("نمایش"), Width = 70 };
         var template = new DataTemplate();
         var factory = new FrameworkElementFactory(typeof(Button));
-        factory.SetValue(Button.ContentProperty, "نمایش");
+        factory.SetValue(Button.ContentProperty, Translate("نمایش"));
         factory.SetValue(Button.StyleProperty, Application.Current.FindResource("PrimaryButton"));
         factory.SetValue(Button.PaddingProperty, new Thickness(8, 4, 8, 4));
         factory.SetValue(Button.FontSizeProperty, 11.0);
@@ -60,6 +63,12 @@ public partial class PaginatedDataGrid : UserControl
     public void LoadData(DataTable table)
     {
         _allData = table ?? new DataTable();
+        foreach (var column in MainGrid.Columns.OfType<DataGridTextColumn>())
+        {
+            if (column.Binding is System.Windows.Data.Binding binding
+                && _allData.Columns[binding.Path.Path] is { } field && column.Header is string caption)
+                field.Caption = caption;
+        }
         _currentPage = 1;
         RefreshGrid();
     }
@@ -110,9 +119,9 @@ public partial class PaginatedDataGrid : UserControl
         int from = showAll ? 1 : (_currentPage - 1) * _pageSize + 1;
         int to = showAll ? totalRows : Math.Min(_currentPage * _pageSize, totalRows);
 
-        PageInfoText.Text = $"{from} تا {to}";
-        TotalText.Text = $"کل: {totalRows}";
-        PageNumbersText.Text = totalPages > 1 ? $"صفحه {_currentPage} از {totalPages}" : "";
+        PageInfoText.Text = Format("{0} تا {1}", from, to);
+        TotalText.Text = Format("کل: {0}", totalRows);
+        PageNumbersText.Text = totalPages > 1 ? Format("صفحه {0} از {1}", _currentPage, totalPages) : "";
     }
 
     private void PageSize_Changed(object sender, SelectionChangedEventArgs e)
@@ -120,7 +129,7 @@ public partial class PaginatedDataGrid : UserControl
         if (!_initialized) return;
         if (PageSizeCombo.SelectedItem is ComboBoxItem item)
         {
-            _pageSize = item.Content.ToString() == "همه" ? int.MaxValue : int.Parse(item.Content.ToString()!);
+            _pageSize = item.Tag is "All" ? int.MaxValue : int.Parse(item.Content.ToString()!);
             _currentPage = 1;
             RefreshGrid();
         }

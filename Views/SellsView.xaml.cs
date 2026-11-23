@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -34,7 +35,7 @@ public partial class SellsView : UserControl
         {
             if (sale.Status == SaleStatus.Returned)
             {
-                ConfirmHelper.ShowWarning("\u0627\u06CC\u0646 \u0641\u0627\u06A9\u062A\u0648\u0631 \u0642\u0628\u0644\u0627 \u0645\u0631\u062C\u0648\u0639 \u0634\u062F\u0647 \u0627\u0633\u062A.");
+                ConfirmHelper.ShowWarning(Translate("\u0627\u06CC\u0646 \u0641\u0627\u06A9\u062A\u0648\u0631 \u0642\u0628\u0644\u0627 \u0645\u0631\u062C\u0648\u0639 \u0634\u062F\u0647 \u0627\u0633\u062A."));
                 return;
             }
 

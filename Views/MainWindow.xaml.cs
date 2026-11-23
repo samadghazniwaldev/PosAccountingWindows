@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.IO;
 using System.Windows;
 using PosAccountingApp.Models;
@@ -22,7 +23,7 @@ public partial class MainWindow : Window
         }
         catch (Exception ex)
         {
-            MessageBox.Show("خطا در راه‌اندازی: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا در راه‌اندازی: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
@@ -40,7 +41,7 @@ public partial class MainWindow : Window
                 if (settings != null)
                 {
                     ShopNameLabel.Text = settings.ShopName;
-                    Title = $"{settings.ShopName} - سیستم مدیریت فروش و حسابداری";
+                    Title = Format("{0} - سیستم مدیریت فروش و حسابداری", settings.ShopName);
                 }
             }
         }
@@ -62,12 +63,12 @@ public partial class MainWindow : Window
     private void Help_Click(object sender, RoutedEventArgs e)
     {
         try { new HelpWindow { Owner = this }.ShowDialog(); }
-        catch (Exception ex) { MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error); }
+        catch (Exception ex) { MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error); }
     }
 
     private void ScanBarcode_Click(object sender, RoutedEventArgs e)
     {
         try { _vm.OpenBarcodeScannerCommand.Execute(null); }
-        catch (Exception ex) { MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error); }
+        catch (Exception ex) { MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error); }
     }
 }

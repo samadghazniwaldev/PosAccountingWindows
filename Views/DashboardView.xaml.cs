@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Windows;
 using System.Windows.Controls;
 using PosAccountingApp.ViewModels;
@@ -55,7 +56,7 @@ public partial class DashboardView : UserControl
         try { action(); }
         catch (Exception ex)
         {
-            MessageBox.Show("خطا: " + ex.Message, "خطای برنامه", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطای برنامه"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

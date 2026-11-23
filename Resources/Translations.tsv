@@ -1,0 +1,404 @@
+سند جدید	New journal entry	نوې حسابي سند
+ثبت سند حسابداری جدید	New accounting entry	د نوي حسابي سند ثبت
+حساب	Account	حساب
+بدهکار	Debit	ډېبېټ
+بستانکار	Credit	کرېډېټ
+توضیحات	Description	تشریحات
+جمع بدهکار	Total debit	ټول ډېبېټ
+جمع بستانکار	Total credit	ټول کرېډېټ
+افزودن ردیف	Add line	کرښه زیاتول
+ذخیره سند	Save entry	سند خوندي کول
+انصراف	Cancel	لغوه کول
+شماره سند	Entry number	د سند شمېره
+تاریخ	Date	نېټه
+وضعیت	Status	حالت
+هنوز سند حسابداری ثبت نشده.	No accounting entries yet.	تر اوسه حسابي سند نشته.
+افزودن	Add	زیاتول
+پیوست تصویر	Attach image	انځور نښلول
+فایلی انتخاب نشده	No file selected	هېڅ فایل نه دی ټاکل شوی
+انتخاب فایل	Select file	فایل ټاکل
+ذخیره	Save	خوندي کول
+اسکن بارکد و QR	Scan barcode or QR code	بارکوډ یا QR کوډ سکن کول
+دوربین یا اسکنر USB	Camera or USB scanner	کمره یا USB سکنر
+شروع دوربین	Start camera	کمره چالانول
+توقف	Stop	درول
+بستن	Close	تړل
+ورود دستی کد	Enter code manually	کوډ په لاس لیکل
+افزودن کد	Add code	کوډ زیاتول
+نتیجه اسکن	Scan result	د سکن پایله
+تاریخچه اسکن	Scan history	د سکن تاریخچه
+دوربین متصل نیست	Camera is disconnected	کمره نښلول شوې نه ده
+راهنمای استفاده	Instructions	لارښوونې
+روش ۱: دوربین وب‌کم	Option 1: Webcam	لومړۍ لاره: وېب‌کمره
+روش ۲: اسکنر USB	Option 2: USB scanner	دویمه لاره: USB سکنر
+روش ۳: ورود دستی	Option 3: Manual entry	درېیمه لاره: په لاس لیکل
+فرمت‌های پشتیبانی شده	Supported formats	منل کېدونکې بڼې
+دسته جدید	New category	نوې کټګوري
+افزودن دسته جدید	Add a new category	نوې کټګوري زیاتول
+نام دسته	Category name	د کټګورۍ نوم
+ترتیب	Sort order	ترتیب
+آیکون	Icon	نښه
+دسته والد (اختیاری)	Parent category (optional)	اصلي کټګوري (اختیاري)
+نام	Name	نوم
+توضیح	Description	تشریح
+حذف	Delete	ړنګول
+هنوز دسته‌ای ثبت نشده.	No categories yet.	تر اوسه کټګوري نشته.
+چک جدید	New cheque	نوی چک
+اطلاعات چک	Cheque details	د چک معلومات
+شماره چک	Cheque number	د چک شمېره
+نام بانک	Bank name	د بانک نوم
+مبلغ	Amount	اندازه
+سررسید	Due date	د ورکړې نېټه
+صاحب چک	Cheque holder	د چک خاوند
+نوع	Type	ډول
+مشتری جدید	New customer	نوی پېرودونکی
+اطلاعات مشتری	Customer details	د پېرودونکي معلومات
+نام مشتری	Customer name	د پېرودونکي نوم
+شماره تماس	Phone number	د اړیکې شمېره
+سقف اعتبار	Credit limit	د پور حد
+داشبورد	Dashboard	لنډیز
+فروش امروز	Today's sales	د نن ورځې پلور
+درآمد امروز	Today's revenue	د نن ورځې عاید
+مشتریان	Customers	پېرودونکي
+کالاها	Products	توکي
+چک‌های در انتظار	Pending cheques	نا تصفیه شوي چکونه
+هشدار موجودی	Stock alerts	د موجودۍ خبرتیاوې
+دسترسی سریع	Quick access	چټک لاسرسی
+صندوق فروش	Checkout	د پلور صندوق
+کالاها و خدمات	Products and services	توکي او خدمتونه
+خزانه‌داری و چک	Treasury and cheques	خزانه او چکونه
+دسته‌بندی‌ها	Categories	کټګورۍ
+هزینه‌ها	Expenses	لګښتونه
+تامین‌کنندگان	Suppliers	عرضه کوونکي
+حسابداری	Accounting	محاسبه
+گزارشات	Reports	راپورونه	گزارش‌ها
+مدیریت کاربران	User management	د کاروونکو اداره
+تنظیمات	Settings	امستنې
+جزئیات و ویرایش	Details and editing	جزیات او سمون
+جزئیات	Details	جزیات
+ذخیره تغییرات	Save changes	بدلونونه خوندي کول
+هزینه جدید	New expense	نوی لګښت
+ثبت هزینه جدید	Record a new expense	نوی لګښت ثبتول
+دسته‌بندی	Category	کټګوري
+جستجوی سراسری	Global search	عمومي لټون
+جستجو...	Search…	لټون…
+ESC برای بستن	Press Esc to close	د تړلو لپاره Esc کېکاږئ
+راهنمای استفاده از برنامه	User guide	د کارونې لارښود
+راه‌اندازی اولیه	First-time setup	لومړنی تنظیم
+ورود به سیستم	Sign in	ننوتل
+صندوق فروشگاهی	Point of sale	د پلور صندوق
+مدیریت کالاها	Product management	د توکو اداره
+دسته‌بندی کالاها	Product categories	د توکو کټګورۍ
+مدیریت مشتریان	Customer management	د پېرودونکو اداره
+خروجی و چاپ	Export and print	صادرول او چاپ
+میانبرهای صفحه‌کلید	Keyboard shortcuts	د کیبورډ لنډلارې
+پشتیبان‌گیری	Back up	شاتړ
+کل کالاها	Total products	ټول توکي
+ارزش موجودی	Inventory value	د زېرمې ارزښت
+موجودی کم	Low stock	لږه موجودي
+موجودی صفر	Out of stock	موجودي نشته
+همه کالاها	All products	ټول توکي
+عنوان	Title	سرلیک
+موجودی	Stock	موجودي
+حداقل	Minimum	لږ تر لږه
+قیمت فروش	Sale price	د پلور بیه
+کمبود	Shortage	کموالی
+حداقل موجودی	Minimum stock	لږ تر لږه موجودي
+قیمت خرید	Purchase price	د پېر بیه
+پیش‌نمایش فاکتور	Invoice preview	د بل مخکتنه
+فاکتور فروش	Sales invoice	د پلور بل
+فروشگاه	Store	پلورنځی
+شماره فاکتور	Invoice number	د بل شمېره
+آیتم‌ها	Items	توکي
+کالا	Product	توکی
+تعداد	Quantity	شمېر
+قیمت	Price	بیه
+جمع	Total	ټول
+جمع کل	Subtotal	فرعي مجموعه
+مالیات	Tax	مالیه
+مبلغ قابل پرداخت	Amount due	د ورکړې اندازه
+وضعیت: پرداخت شده	Status: Paid	حالت: ورکړل شوی
+با تشکر از خرید شما	Thank you for your purchase	ستاسې له پېرود څخه مننه
+ستاره‌دار کردن	Mark as favorite	په ستوري نښه کول
+چاپ	Print	چاپ
+کاربر خود را انتخاب کرده و کد عبور را وارد کنید	Select your account and enter your password	خپل حساب وټاکئ او پټنوم ولیکئ
+کاربر	User	کاروونکی
+کد عبور	Password	پټنوم
+نقش	Role	رول
+هنوز کاربری وجود ندارد.	No users yet.	تر اوسه کاروونکی نشته.
+ورود	Sign in	ننوتل
+سیستم وفاداری مشتریان	Customer loyalty	د پېرودونکو وفاداري
+برنزی	Bronze	برونزي
+نقره‌ای	Silver	سپین زر
+طلایی	Gold	سره زر
+سطح	Tier	کچه
+امتیاز	Points	نمرې
+تخفیف	Discount	تخفیف
+هنوز مشتری ثبت نشده.	No customers yet.	تر اوسه پېرودونکی نشته.
+مشتری	Customer	پېرودونکی
+استفاده از امتیاز	Redeem points	د نمرو کارول
+تعداد امتیاز	Point count	د نمرو شمېر
+استفاده	Redeem	کارول
+تاریخچه امتیاز	Points history	د نمرو تاریخچه
+سیستم مدیریت فروش و حسابداری	Sales and accounting	پلور او محاسبه
+م	U	ک
+مدیریت انبار	Inventory management	د ګودام اداره
+فروش‌ها	Sales	پلورونه
+راهنما	Help	لارښود
+اسکن بارکد	Scan barcode	بارکوډ سکن کول
+جستجو	Search	لټون
+F1 صندوق  |  F2 کالا  |  F4 دسته‌بندی  |  F3 چک  |  Ctrl+G جستجو	F1 Checkout · F2 Products · F4 Categories · F3 Cheques · Ctrl+G Search	F1 صندوق · F2 توکي · F4 کټګورۍ · F3 چکونه · Ctrl+G لټون
+مالیات (۱۰٪)	Tax (10%)	مالیه (۱۰٪)
+روش پرداخت	Payment method	د ورکړې طریقه
+نقدی	Cash	نغدي
+کارتخوان	Card	بانکي کارت
+نسیه	On credit	په پور
+اقساطی	Installments	قسطونه
+پول کامل پرداخت شده	Paid in full	ټولې پیسې ورکړل شوې
+مبلغ پرداختی	Amount paid	ورکړل شوې پیسې
+باقیمانده	Balance due	پاتې پیسې
+تکمیل فروش	Complete sale	پلور بشپړول
+کالای جدید	New product	نوی توکی
+اطلاعات کالا	Product details	د توکي معلومات
+عنوان کالا	Product name	د توکي نوم
+بارکد	Barcode	بارکوډ
+افزودن دسته‌بندی	Add category	کټګوري زیاتول
+واحد	Unit	واحد
+نوع گزارش	Report type	د راپور ډول
+از	From	له
+تا	To	تر
+نمایش گزارش	Show report	راپور ښودل
+نوع گزارش را انتخاب کرده و روی نمایش کلیک کنید	Select a report type and click Show report	د راپور ډول وټاکئ او د راپور پر ښودلو کېکاږئ
+تعداد فاکتورها	Invoice count	د بلونو شمېر
+کل درآمد	Total revenue	ټول عاید
+سود خالص	Net profit	خالصه ګټه
+مرجوعی	Return	بېرته ستنول
+پاک کردن	Clear	پاکول
+عملیات	Actions	کړنې
+مرجوع	Return	بېرته ستنول
+آیتم‌های فاکتور	Invoice items	د بل توکي
+ظاهر برنامه	Appearance	د کاریال بڼه
+پوسته	Theme	بڼه
+اقیانوس آبی	Ocean blue	سمندري آبي
+سبز زمردی	Emerald green	زمردي شین
+بنفش سلطنتی	Royal purple	شاهي بنفش
+غروب نارنجی	Orange sunset	نارنجي ماښام
+نیمه‌شب تاریک	Midnight dark	تور نیمه‌شپه
+اندازه فونت	Font size	د لیک اندازه
+اندازه	Size	اندازه
+دسترسی‌پذیری	Accessibility	لاسرسی
+کنتراست بالا	High contrast	لوړ توپیر
+فعال کردن کنتراست بالا	Enable high contrast	لوړ توپیر فعالول
+پروفایل کسب‌وکار	Business profile	د سوداګرۍ پېژندپاڼه
+نام فروشگاه	Store name	د پلورنځي نوم	نام دکان
+تلفن	Phone	ټیلیفون
+آدرس	Address	پته
+نوع کسب‌وکار	Business type	د سوداګرۍ ډول
+سوپرمارکت	Supermarket	سوپرمارکېټ
+پوشاک	Clothing	جامې
+املاک	Real estate	جایدادونه
+خودرو	Vehicles	موټرونه
+مصالح	Building materials	ساختماني توکي
+مالیات و گرد کردن	Tax and rounding	مالیه او ګردول
+درصد مالیات (VAT)	VAT rate	د ارزښت‌زیاتوالي مالیې کچه
+درصد کارمزد	Commission rate	د کمېسیون کچه
+نحوه افزودن اطلاعات	Data entry layout	د معلوماتو ثبت بڼه
+پنجره پاپ‌آپ	Pop-up window	راښکاره کېدونکې کړکۍ
+صفحه جداگانه	Separate page	جلا پاڼه
+در همان صفحه	On the same page	په همدې پاڼه کې
+تنظیمات رسید	Receipt settings	د رسید امستنې
+سربرگ رسید	Receipt header	د رسید سرلیک
+پیام انتهای رسید	Receipt footer message	د رسید پای پیغام
+میانبرها و پشتیبان	Shortcuts and backup	لنډلارې او شاتړ
+تنظیم میانبرها	Configure shortcuts	لنډلارې تنظیمول
+ذخیره و اعمال تنظیمات	Save and apply settings	امستنې خوندي او پلي کول
+تنظیم اولیه سیستم	First-time setup	لومړنی تنظیم
+اطلاعات فروشگاه خود را وارد کنید	Enter your store information	د خپل پلورنځي معلومات ولیکئ
+سوپرمارکت و خرده‌فروشی	Supermarket and retail	سوپرمارکېټ او پرچون پلور
+پوشاک و کیف و کفش	Clothing, bags and shoes	جامې، بکسونه او بوټان
+بنگاه املاک	Real estate agency	د جایدادونو اداره
+نمایشگاه خودرو	Car dealership	د موټرو پلورنځی
+فروشگاه مصالح ساختمانی	Building supply store	د ساختماني توکو پلورنځی
+تلفن فروشگاه	Store phone	د پلورنځي ټیلیفون
+آدرس فروشگاه	Store address	د پلورنځي پته
+کد عبور مدیر (۴ رقمی)	Administrator PIN (4 digits)	د مدیر پټ کوډ (۴ شمېرې)
+شروع به کار	Get started	پیل کول
+تنظیم میانبرهای صفحه‌کلید	Configure keyboard shortcuts	د کیبورډ لنډلارې تنظیمول
+کلید	Key	تڼۍ
+عملکرد	Action	کړنه
+بازگشت به پیش‌فرض	Restore defaults	تلوالې بېرته راګرځول
+تامین‌کننده جدید	New supplier	نوی عرضه کوونکی
+کل بدهی تامین‌کنندگان	Total owed to suppliers	عرضه کوونکو ته ټول پور
+مسئول تماس	Contact person	د اړیکې کس
+ثبت پرداخت	Record payment	ورکړه ثبتول
+مبلغ پرداخت	Payment amount	د ورکړې اندازه
+بدهی	Debt	پور
+پرداختی	Paid	ورکړل شوی
+مانده	Balance	پاتې
+پرداخت	Payment	ورکړه
+هنوز تامین‌کننده‌ای ثبت نشده.	No suppliers yet.	تر اوسه عرضه کوونکی نشته.
+روی تامین‌کننده کلیک کنید	Select a supplier	عرضه کوونکی وټاکئ
+کاربر جدید	New user	نوی کاروونکی
+افزودن کاربر جدید	Add a new user	نوی کاروونکی زیاتول
+نام کاربر	Username	د کاروونکي نوم
+کد عبور (حداقل ۴ رقم)	Password (at least 4 digits)	پټنوم (لږ تر لږه ۴ شمېرې)
+همه	All	ټول
+داده‌ای موجود نیست	No data available	معلومات نشته
+زبان	Language	ژبه
+آماده	Ready	چمتو
+آپارتمان	Apartment	اپارتمان
+اجاره	Rent	کرایه
+انتخاب فایل پیوست	Select attachment	ضمیمه ټاکل
+این فاکتور قبلا مرجوع شده است.	This invoice has already been returned.	دا بل مخکې بېرته ستنول شوی دی.
+بانک	Bank	بانک
+بایگانی	Archived	آرشیف شوی
+بدون گرد	No rounding	بې ګردولو
+برگشتی	Returned	بېرته ستنول شوی
+تایید	Confirm	تایید
+تایید حذف	Confirm deletion	ړنګول تایید کړئ
+تایید فروش	Confirm sale	پلور تایید کړئ
+تایید مرجوعی	Confirm return	بېرته ستنول تایید کړئ
+تجاری	Commercial	سوداګریز
+ترکیبی	Mixed	ګډ
+تضیمیمات	Settings	امستنې	تنظیمات
+تضیمیمات ذخیره و اعمال شد	Settings saved and applied	امستنې خوندي او پلي شوې	تنظیمات ذخیره و اعمال شد
+تعمیرات	Maintenance	ترمیم
+تن	Tonne	ټن
+توجه	Notice	خبرتیا
+جعبه	Box	بکس
+حذف شد	Deleted	ړنګ شو
+حسابدار	Accountant	محاسب
+حقوق	Salary	معاش
+حمل‌ونقل	Transport	لېږد
+خروجی	Export	صادرول
+خطا	Error	تېروتنه
+خطا در بارگذاری تامین‌کنندگان	Failed to load suppliers	عرضه کوونکي پورته نه شول
+خطا در بارگذاری کاربران	Failed to load users	کاروونکي پورته نه شول
+خطا در بارگذاری	Loading failed	پورته کول ناکام شول
+خطا در راه‌اندازی	Setup failed	تنظیم ناکام شو
+خطا در چاپ	Printing failed	چاپ ناکام شو
+خطای برنامه	Application error	د کاریال تېروتنه
+در حال راه‌اندازی...	Setting up…	تنظیم روان دی…
+در صندوق	In vault	په صندوق کې
+در نمایشگاه	In showroom	په نندارتون کې
+دریافتی	Receivable	ترلاسه کېدونکی
+دسته	Category	کټګوري
+دوربین	Camera	کمره
+ذخیره شد	Saved	خوندي شو
+رزرو شده	Reserved	خوندي شوی
+رهن	Mortgage	ګروي
+ريال	Rial	ریال
+ریال	Rial	ریال
+زمین	Land	ځمکه
+سایر	Other	نور
+سبد خرید خالی است	The cart is empty	د پېر ټوکرۍ تشه ده
+ستاره‌دار شد	Marked as favorite	په ستوري ونښلول شو
+سررسید گذشته	Overdue	له نېټې اوښتی
+سود و زیان	Profit and loss	ګټه او تاوان
+شارژ	Charge	چارج
+صندوقدار	Cashier	صندوق‌دار
+عادی	Normal	عادي
+عدد	Each	دانه
+فاکتور	Invoice	بل
+فاکتورها قابل ویرایش نیستند	Invoices cannot be edited	بلونه سمېدای نه شي
+فروخته شده	Sold	پلورل شوی
+فروش	Sale	پلور
+فروش روزانه	Daily sales	ورځنی پلور
+فروش ماهانه	Monthly sales	میاشتنی پلور
+قبوض	Utilities	د خدمتونو بلونه
+لطفاً نام فروشگاه را وارد کنید	Please enter the store name	د پلورنځي نوم ولیکئ
+لطفاً نوع کسب‌وکار را انتخاب کنید	Please select the business type	د سوداګرۍ ډول وټاکئ
+لطفاً کاربر را انتخاب کنید	Please select a user	یو کاروونکی وټاکئ
+لطفاً کد عبور را وارد کنید	Please enter the password	پټنوم ولیکئ
+لوازم	Supplies	وسایل
+لیست مشتریان	Customer list	د پېرودونکو لېست
+لیست هزینه‌ها	Expense list	د لګښتونو لېست
+لیست چک‌ها	Cheque list	د چکونو لېست
+لیست کالاها	Product list	د توکو لېست
+متر	Metre	متر
+مترمکعب	Cubic metre	مکعب متر
+مدیر	Administrator	مدیر
+مدیر ارشد	Super administrator	لوړپوړی مدیر
+مرجوع شده	Returned	بېرته ستنول شوی
+مشاور	Broker	سلاکار
+مصالح ساختمانی	Building materials	ساختماني توکي
+معامله شده	Deal completed	معامله بشپړه شوې
+منتقل شده	Transferred	لېږدول شوی
+موجود	Available	شته
+موجودی حساب	Account balance	د حساب پاتې
+موجودی کالا	Product stock	د توکو موجودي
+موفق	Success	بریالی
+نمایش	View	کتل
+وصول شده	Cleared	تصفیه شوی
+ویلایی	Villa	ویلا
+پرداخت جزئی	Partially paid	یوه برخه ورکړل شوې
+پرداخت شده	Paid	ورکړل شوی
+پرداخت نشده	Unpaid	ورکړل شوی نه دی
+پرداخت کامل	Paid in full	بشپړ ورکړل شوی
+پشتیبان ذخیره شد	Backup saved	شاتړ خوندي شو
+چک	Cheque	چک
+کد عبور اشتباه است	Incorrect password	پټنوم ناسم دی
+کد عبور باید دقیقاً ۴ رقم باشد	The PIN must contain exactly 4 digits	پټ کوډ باید پوره ۴ شمېرې ولري
+کیسه	Bag	کڅوړه
+کیلوگرم	Kilogram	کیلوګرام
+گرد به ۱۰۰۰	Round to 1,000	تر ۱۰۰۰ پورې ګردول
+گرد به ۵۰۰	Round to 500	تر ۵۰۰ پورې ګردول
+گزارش	Report	راپور
+گزارش مشتریان	Customer report	د پېرودونکو راپور
+گزارش هزینه‌ها	Expense report	د لګښتونو راپور
+گزارش چک‌ها	Cheque report	د چکونو راپور
+زبان بعد از راه‌اندازی مجدد اعمال می‌شود.	The language change takes effect after restarting.	د ژبې بدلون له بیا چالانولو وروسته پلي کېږي.
+آیا از حذف این مورد اطمینان دارید؟	Delete this item?	دا توکی ړنګ شي؟
+آنلاین	Online	انلاین
+خطا: {0}\n\n{1}	Error: {0}\n\n{1}	تېروتنه: {0}\n\n{1}
+شماره فاکتور: {0}	Invoice number: {0}	د بل شمېره: {0}
+تاریخ: {0:yyyy/MM/dd HH:mm}	Date: {0:yyyy/MM/dd HH:mm}	نېټه: {0:yyyy/MM/dd HH:mm}
+{0:N0} ریال	{0:N0} rials	{0:N0} ریال
+جمع کل: {0:N0} ریال	Subtotal: {0:N0} rials	فرعي مجموعه: {0:N0} ریال
+مالیات: {0:N0} ریال	Tax: {0:N0} rials	مالیه: {0:N0} ریال
+مبلغ قابل پرداخت: {0:N0} ریال	Amount due: {0:N0} rials	د ورکړې اندازه: {0:N0} ریال
+{0} - سیستم مدیریت فروش و حسابداری	{0} - Sales and accounting	{0} - پلور او محاسبه
+آیا از حذف '{0}' از سبد اطمینان دارید؟	Remove '{0}' from the cart?	'{0}' د پېر له ټوکرۍ لرې شي؟
+آیا از ثبت فاکتور به مبلغ {0:N0} ریال اطمینان دارید؟	Confirm this invoice for {0:N0} rials?	د {0:N0} ریالو بل تایید کړئ؟
+{0} تا {1}	{0} to {1}	له {0} تر {1}
+کل: {0}	Total: {0}	ټول: {0}
+صفحه {0} از {1}	Page {0} of {1}	پاڼه {0} له {1}
+آیا از حذف '{0}' اطمینان دارید؟\nاین عمل قابل بازگشت نیست.	Delete '{0}'?\nThis action cannot be undone.	'{0}' ړنګ شي؟\nدا کړنه بېرته نه راګرځي.
+آیا از مرجوعی فاکتور '{0}' به مبلغ {1:N0} ریال اطمینان دارید؟\nموجودی کالاها بازگردانده می‌شود.	Return invoice '{0}' for {1:N0} rials?\nThe items will be restored to stock.	د {1:N0} ریالو '{0}' بل بېرته ستون شي؟\nتوکي به بېرته په موجودۍ کې زیات شي.
+فایل اکسل ذخیره شد:\n{0}	Excel file saved:\n{0}	د Excel فایل خوندي شو:\n{0}
+فایل PDF ذخیره شد:\n{0}	PDF file saved:\n{0}	PDF فایل خوندي شو:\n{0}
+تاریخ چاپ: {0:yyyy/MM/dd HH:mm}	Print date: {0:yyyy/MM/dd HH:mm}	د چاپ نېټه: {0:yyyy/MM/dd HH:mm}
+چک: {0}	Cheque: {0}	چک: {0}
+مشتری: {0}	Customer: {0}	پېرودونکی: {0}
+هزینه: {0}	Expense: {0}	لګښت: {0}
+کالا: {0}	Product: {0}	توکی: {0}
+بارکد: {0} | موجودی: {1}	Barcode: {0} · Stock: {1}	بارکوډ: {0} · موجودي: {1}
+تلفن: {0} | موجودی: {1:N0}	Phone: {0} · Balance: {1:N0}	ټیلیفون: {0} · پاتې: {1:N0}
+{0} | {1:N0} ریال | {2}	{0} · {1:N0} rials · {2}	{0} · {1:N0} ریال · {2}
+نقش: {0}	Role: {0}	رول: {0}
+جزئیات وفاداری	Loyalty details	د وفادارۍ جزیات
+برای استفاده از دوربین، کتابخانه OpenCvSharp را نصب کنید:\n\n	Install OpenCvSharp to use the camera:\n\n	د کمرې لپاره OpenCvSharp نصب کړئ:\n\n
+یا از اسکنر USB یا ورود دستی استفاده کنید.	Alternatively, use a USB scanner or enter the code manually.	یا USB سکنر وکاروئ یا کوډ په لاس ولیکئ.
+بنام	Payee	ترلاسه کوونکی
+کسب امتیاز	Points earned	ترلاسه شوې نمرې
+امتیاز تشویقی	Bonus points	انعامي نمرې
+تعدیل امتیاز	Points adjustment	د نمرو سمون
+منقضی شده	Expired	پای ته رسېدلې
+Help.Webcam	Connect a webcam or USB camera, then select Start camera. Point it at a barcode or QR code to scan it automatically.	وېب‌کمره یا USB کمره ونښلوئ او کمره چالانه کړئ. کمره بارکوډ یا QR کوډ ته ونیسئ چې پخپله سکن شي.	دوربین وب‌کم یا USB را وصل کنید و دکمه شروع دوربین را بزنید.\n                                    دوربین را روی بارکد یا کد QR بگیرید تا به صورت خودکار شناسایی شود.
+Help.UsbScanner	A USB scanner works like a keyboard. Scan a barcode to enter its code.	د USB سکنر د کیبورډ په څېر کار کوي. بارکوډ سکن کړئ چې کوډ یې ولیکل شي.	اسکنرهای USB بارکد مانند صفحه‌کلید عمل می‌کنند.\n                                    کافیست بارکد را با اسکنر بخوانید و کد وارد می‌شود.
+Help.ManualEntry	Type the barcode in the field above and select Add code.	بارکوډ په پورتني ځای کې ولیکئ او د کوډ زیاتول وټاکئ.	کد بارکد را به صورت دستی در فیلد بالا تایپ کنید\n                                    و دکمه افزودن را بزنید.
+Help.Setup	Enter your store name, business type, phone, address, VAT rate, and a four-digit administrator PIN. Select Get started to finish setup.	د پلورنځي نوم، د سوداګرۍ ډول، ټیلیفون، پته، د مالیې کچه او د مدیر څلور شمېریز پټ کوډ ولیکئ. د تنظیم بشپړولو لپاره پیل کول وټاکئ.	در اولین اجرای برنامه، پنجره تنظیم اولیه نمایش داده می‌شود. در این پنجره باید اطلاعات فروشگاه خود را وارد کنید:\n\n- نام فروشگاه: نام کسب‌وکار خود را وارد کنید\n- نوع کسب‌وکار: نوع فعالیت خود را انتخاب کنید (سوپرمارکت، پوشاک، املاک، خودرو، مصالح)\n- تلفن فروشگاه: شماره تماس فروشگاه\n- آدرس فروشگاه: آدرس محل کسب‌وکار\n- کد عبور مدیر: یک کد ۴ رقمی برای ورود به سیستم (مهم: این کد را به خاطر بسپارید)\n- درصد مالیات: درصد مالیات ارزش افزوده (پیش‌فرض ۱۰٪)\n\nپس از تکمیل، روی دکمه شروع به کار کلیک کنید.
+Help.Login	Select your account, enter your password, and select Sign in. Choose your interface language from the language list.	خپل حساب وټاکئ، پټنوم ولیکئ او ننوځئ. د کاریال ژبه د ژبو له لېست څخه وټاکئ.	پس از راه‌اندازی، پنجره ورود نمایش داده می‌شود:\n\n- نام کاربر خود را از لیست کشویی انتخاب کنید\n- کد عبور ۴ رقمی خود را وارد کنید\n- روی دکمه ورود کلیک کنید\n\nنکته: فقط مدیر می‌تواند کاربران جدید بسازد. کاربران دیگر توسط مدیر ایجاد می‌شوند.
+Help.Dashboard	The dashboard shows sales, revenue, customers, products, pending cheques, and stock alerts. Use Quick access to open a section.	لنډیز پلور، عاید، پېرودونکي، توکي، چکونه او د موجودۍ خبرتیاوې ښيي. د برخې پرانیستلو لپاره چټک لاسرسی وکاروئ.	پس از ورود، وارد داشبورد می‌شوید. در این صفحه:\n\n- کارت‌های رنگی آمار کلی فروش، درآمد، مشتریان و کالاها را نشان می‌دهد\n- دسترسی سریع به بخش‌های مهم برنامه\n- برای رفتن به هر بخش، روی نام آن در سایدبار کلیک کنید
+Help.Checkout	Search by product name or barcode and select a result to add it to the cart. Check quantities, choose a payment method, and select Complete sale.	توکی په نوم یا بارکوډ ولټوئ او پایله د پېر ټوکرۍ ته زیاته کړئ. شمېرې وګورئ، د ورکړې طریقه وټاکئ او پلور بشپړ کړئ.	برای ثبت فروش:\n\n- نام یا بارکد کالا را در فیلد بالا تایپ کنید\n- لیست کالاهای مرتبط نمایش داده می‌شود\n- روی کالای مورد نظر کلیک کنید تا به سبد اضافه شود\n- تعداد و قیمت را بررسی کنید\n- نام مشتری را وارد کنید (اختیاری)\n- روش پرداخت را انتخاب کنید (نقدی، کارتخوان، نسیه، اقساطی)\n- مبلغ پرداختی را وارد کنید\n- روی تکمیل فروش کلیک کنید\n\nنکته: برای نگهداری فاکتور جاری، از دکمه نگهداری فاکتور استفاده کنید.
+Help.Products	Select New product and enter the name, barcode, category, unit, prices, and stock. Save the product when finished.	نوی توکی وټاکئ، نوم، بارکوډ، کټګوري، واحد، بیې او موجودي ولیکئ. بیا توکی خوندي کړئ.	برای افزودن کالای جدید:\n\n- روی دکمه کالای جدید کلیک کنید\n- اطلاعات کالا را وارد کنید: عنوان، بارکد، دسته‌بندی، واحد، قیمت خرید و فروش، موجودی\n- دسته‌بندی را از لیست کشویی انتخاب کنید\n- واحد را به فارسی انتخاب کنید (عدد، کیلوگرم، جعبه و...)\n- روی ذخیره کلیک کنید\n\nبرای حذف کالا، روی ردیف مورد نظر کلیک کنید و دکمه حذف را بزنید.\n\nبرای جستجو، نام کالا یا بارکد را در فیلد جستجو تایپ کنید.\n\nبرای دیدن جزئیات، دوبار روی ردیف کلیک کنید.
+Help.Categories	Select New category, enter a name, and choose an icon. You can select a parent category to create a subcategory. Saved categories appear in the product form.	نوې کټګوري وټاکئ، نوم ولیکئ او نښه وټاکئ. د فرعي کټګورۍ لپاره اصلي کټګوري ټاکلی شئ. خوندي شوې کټګورۍ د توکي په فورمه کې ښکاري.	برای مدیریت دسته‌بندی‌ها:\n\n- روی دکمه دسته جدید کلیک کنید\n- نام دسته را وارد کنید\n- آیکون مورد نظر را انتخاب کنید\n- برای ایجاد زیرمجموعه، دسته والد را انتخاب کنید\n- ترتیب نمایش را مشخص کنید\n- روی ذخیره کلیک کنید\n\nدسته‌بندی‌ها در بخش افزودن کالا نمایش داده می‌شوند.
+Help.Customers	Enter the customer's name, phone number, and credit limit, then save.	د پېرودونکي نوم، د اړیکې شمېره او د پور حد ولیکئ او خوندي یې کړئ.	برای افزودن مشتری جدید:\n\n- نام و شماره تماس مشتری را وارد کنید\n- سقف اعتبار (حداکثر مبلغ نسیه) را مشخص کنید\n- روی ذخیره کلیک کنید\n\nمشتریان در صندوق فروشگاهی قابل انتخاب هستند.
+Help.Cheques	Enter the cheque number, bank, amount, due date, holder, and whether it is receivable or payable, then save.	د چک شمېره، بانک، اندازه، د ورکړې نېټه، خاوند او د چک ډول ولیکئ او خوندي یې کړئ.	برای ثبت چک:\n\n- شماره چک، نام بانک و مبلغ را وارد کنید\n- تاریخ سررسید را مشخص کنید\n- نام صاحب چک و نوع (دریافتی/پرداختی) را انتخاب کنید\n- روی ذخیره کلیک کنید\n\nچک‌ها در جدول لیست می‌شوند و قابل فیلتر و جستجو هستند.
+Help.Expenses	Select the expense category, enter the amount, date, and description, then save.	د لګښت کټګوري وټاکئ، اندازه، نېټه او تشریح ولیکئ او خوندي یې کړئ.	برای ثبت هزینه:\n\n- دسته‌بندی هزینه را انتخاب کنید (اجاره، قبوض، حقوق و...)\n- مبلغ و تاریخ را وارد کنید\n- توضیحات بنویسید\n- روی ذخیره کلیک کنید
+Help.Search	Press Ctrl+G, enter a search term, and choose a result. Press Esc to close the search window.	Ctrl+G کېکاږئ، د لټون کلمه ولیکئ او پایله وټاکئ. د کړکۍ تړلو لپاره Esc کېکاږئ.	برای جستجو در تمام بخش‌ها:\n\n- کلیدهای Ctrl+G را فشار دهید\n- پنجره جستجو باز می‌شود\n- عبارت مورد نظر را تایپ کنید\n- نتایج در کالاها، مشتریان، چک‌ها و کاربران نمایش داده می‌شود\n- برای بستن، کلید ESC را فشار دهید
+Help.Export	In supported tables, choose PDF or Excel to export, or select Print to send the table to a printer.	په هغو جدولونو کې چې دا اسانتیا لري، د صادرولو لپاره PDF یا Excel وټاکئ او د چاپ لپاره پر چاپ کېکاږئ.	در هر صفحه با جدول داده:\n\n- دکمه PDF: خروجی فایل PDF با فونت فارسی\n- دکمه Excel: خروجی فایل اکسل (.xlsx)\n- دکمه چاپ: چاپ مستقیم روی پرینتر (صفحه A4 افقی)\n- کشویی بالای جدول: انتخاب تعداد ردیف در هر صفحه (۵، ۱۰، ۲۰، ۵۰، همه)\n\nبرای دیدن جزئیات یک ردیف، دوبار روی آن کلیک کنید.
+Help.Settings	Use Settings to change the theme, font size, contrast, language, receipt text, and business details. Save your changes before leaving.	په امستنو کې بڼه، د لیک اندازه، توپیر، ژبه، د رسید متن او د سوداګرۍ معلومات بدلولی شئ. بدلونونه خوندي کړئ.	از بخش تنظیمات می‌توانید:\n\n- تم برنامه را تغییر دهید (روشن/تاریک)\n- اندازه فونت را تنظیم کنید (۱۰ تا ۲۰)\n- کنتراست بالا را فعال کنید (برای دسترسی‌پذیری بیشتر)\n- اطلاعات فروشگاه را ویرایش کنید\n- درصد مالیات و کارمزد را تغییر دهید\n- پشتیبان از دیتابیس بگیرید
+Help.Shortcuts	Ctrl+G: Global search · F1: Checkout · F2: Products · F3: Cheques · F4: Categories · F9: Reports · Esc: Close	Ctrl+G: عمومي لټون · F1: صندوق · F2: توکي · F3: چکونه · F4: کټګورۍ · F9: راپورونه · Esc: تړل	Ctrl+G  -  جستجوی سراسری\nF1  -  صندوق فروشگاهی\nF2  -  کالاها و خدمات\nF3  -  خزانه‌داری و چک\nF4  -  دسته‌بندی کالاها\nF9  -  گزارشات\nESC  -  بستن پنجره جستجو
+Help.Users	Administrators can open User management, select New user, and save a username, password, and role.	مدیران د کاروونکو اداره پرانیستلی شي. نوی کاروونکی وټاکئ او نوم، پټنوم او رول خوندي کړئ.	فقط کاربران با نقش مدیر ارشد یا مدیر می‌توانند کاربر بسازند.\n\nبرای افزودن کاربر:\n- از سایدبار روی مدیریت کاربران کلیک کنید\n- روی کاربر جدید کلیک کنید\n- نام، کد عبور و نقش را انتخاب کنید\n- روی ذخیره کلیک کنید\n\nنقش‌ها:\n- مدیر ارشد: دسترسی کامل به تمام بخش‌ها\n- مدیر: دسترسی به مدیریت کاربران و تنظیمات\n- صندوقدار: فقط صندوق فروشگاهی\n- مشاور: بخش املاک و خودرو\n- حسابدار: بخش گزارشات و حسابداری
+Help.Backup	In Settings, select Back up. The database backup is saved to the desktop with the date and time in its filename.	په امستنو کې شاتړ وټاکئ. د ډیټابېس شاتړ په ډېسکټاپ کې له نېټې او وخت سره خوندي کېږي.	برای پشتیبان‌گیری از اطلاعات:\n\n- از بخش تنظیمات، دکمه پشتیبان‌گیری را کلیک کنید\n- فایل پشتیبان در دسکتاپ ذخیره می‌شود\n- نام فایل شامل تاریخ و ساعت است\n\nبرای بازیابی اطلاعات:\n- دکمه بازیابی را کلیک کنید\n- فایل پشتیبان را انتخاب کنید\n\nنکته مهم: قبل از بازیابی، از اطلاعات فعلی پشتیبان بگیرید.

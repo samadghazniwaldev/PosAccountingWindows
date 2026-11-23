@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -35,7 +36,7 @@ public partial class ChequesViewModel : ObservableObject
             _allCheques = db.Cheques.AsNoTracking().Where(c => c.IsActive).OrderByDescending(c => c.CreatedAt).ToList();
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     partial void OnSearchTextChanged(string value) { ApplyFilter(); }
@@ -63,7 +64,7 @@ public partial class ChequesViewModel : ObservableObject
             db.SaveChanges();
             IsAddPanelOpen = false; LoadCheques();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() => IsAddPanelOpen = false;

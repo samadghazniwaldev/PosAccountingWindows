@@ -1,6 +1,7 @@
 <UserControl x:Class="PosAccountingApp.Views.SettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:PosAccountingApp.Resources">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -11,21 +12,25 @@
 
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Padding="10,14">
             <StackPanel>
-                <TextBlock Text="تنظیمات" FontSize="22" FontWeight="Bold"
+                <TextBlock Text="{loc:Localize 'تنظیمات'}" FontSize="22" FontWeight="Bold"
                            Foreground="#FF0078D4" Margin="0,0,0,18"/>
+
+                <TextBlock Text="{loc:Localize 'زبان'}" Margin="0,0,0,5"/>
+                <loc:LanguagePicker x:Name="LanguageChoice" AutomationProperties.Name="{loc:Localize 'زبان'}" Margin="0,0,0,12"/>
+
 
                 <!-- Theme -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="ظاهر برنامه" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'ظاهر برنامه'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="پوسته:" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                            <TextBlock Text="{loc:Localize 'پوسته:'}" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
                             <ComboBox x:Name="ThemeCombo" Width="240" Padding="10,6" SelectedIndex="0">
-                                <ComboBoxItem Content="اقیانوس آبی"/>
-                                <ComboBoxItem Content="سبز زمردی"/>
-                                <ComboBoxItem Content="بنفش سلطنتی"/>
-                                <ComboBoxItem Content="غروب نارنجی"/>
-                                <ComboBoxItem Content="نیمه‌شب تاریک"/>
+                                <ComboBoxItem Content="{loc:Localize 'اقیانوس آبی'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'سبز زمردی'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'بنفش سلطنتی'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'غروب نارنجی'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'نیمه‌شب تاریک'}"/>
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>
@@ -34,9 +39,9 @@
                 <!-- Font -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="اندازه فونت" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'اندازه فونت'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="اندازه:" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                            <TextBlock Text="{loc:Localize 'اندازه:'}" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
                             <ComboBox x:Name="FontSizeCombo" Width="120" Padding="10,6" SelectedIndex="2">
                                 <ComboBoxItem Content="10"/>
                                 <ComboBoxItem Content="12"/>
@@ -52,10 +57,10 @@
                 <!-- High Contrast -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="دسترسی‌پذیری" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'دسترسی‌پذیری'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="کنتراست بالا:" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
-                            <CheckBox x:Name="HighContrastCheck" Content="فعال کردن کنتراست بالا"
+                            <TextBlock Text="{loc:Localize 'کنتراست بالا:'}" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                            <CheckBox x:Name="HighContrastCheck" Content="{loc:Localize 'فعال کردن کنتراست بالا'}"
                                       FontSize="13" VerticalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
@@ -64,32 +69,32 @@
                 <!-- Shop Profile -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="پروفایل کسب‌وکار" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'پروفایل کسب‌وکار'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="4">
-                                <TextBlock Text="نام فروشگاه" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'نام فروشگاه'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="ShopNameBox"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Margin="4">
-                                <TextBlock Text="تلفن" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'تلفن'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="PhoneBox"/>
                             </StackPanel>
                         </Grid>
                         <StackPanel Margin="4,10,4,0">
-                            <TextBlock Text="آدرس" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                            <TextBlock Text="{loc:Localize 'آدرس'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                             <TextBox x:Name="AddressBox"/>
                         </StackPanel>
                         <StackPanel Margin="4,10,4,0">
-                            <TextBlock Text="نوع کسب‌وکار" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                            <TextBlock Text="{loc:Localize 'نوع کسب‌وکار'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                             <ComboBox x:Name="ProfileCombo" Width="240" HorizontalAlignment="Left" Padding="10,6">
-                                <ComboBoxItem Content="سوپرمارکت"/>
-                                <ComboBoxItem Content="پوشاک"/>
-                                <ComboBoxItem Content="املاک"/>
-                                <ComboBoxItem Content="خودرو"/>
-                                <ComboBoxItem Content="مصالح"/>
+                                <ComboBoxItem Content="{loc:Localize 'سوپرمارکت'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'پوشاک'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'املاک'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'خودرو'}"/>
+                                <ComboBoxItem Content="{loc:Localize 'مصالح'}"/>
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>
@@ -98,17 +103,17 @@
                 <!-- Tax -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="مالیات و گرد کردن" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'مالیات و گرد کردن'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="4">
-                                <TextBlock Text="درصد مالیات (VAT)" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'درصد مالیات (VAT)'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="VatBox"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Margin="4">
-                                <TextBlock Text="درصد کارمزد" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'درصد کارمزد'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="CommissionBox"/>
                             </StackPanel>
                         </Grid>
@@ -118,11 +123,11 @@
                 <!-- Add Mode -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="نحوه افزودن اطلاعات" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'نحوه افزودن اطلاعات'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <ComboBox x:Name="AddModeCombo" Width="300" HorizontalAlignment="Left" Padding="10,6">
-                            <ComboBoxItem Content="پنجره پاپ‌آپ" Tag="Popup"/>
-                            <ComboBoxItem Content="صفحه جداگانه" Tag="SeparatePage"/>
-                            <ComboBoxItem Content="در همان صفحه" Tag="Inline" IsSelected="True"/>
+                            <ComboBoxItem Content="{loc:Localize 'پنجره پاپ‌آپ'}" Tag="Popup"/>
+                            <ComboBoxItem Content="{loc:Localize 'صفحه جداگانه'}" Tag="SeparatePage"/>
+                            <ComboBoxItem Content="{loc:Localize 'در همان صفحه'}" Tag="Inline" IsSelected="True"/>
                         </ComboBox>
                     </StackPanel>
                 </Border>
@@ -130,17 +135,17 @@
                 <!-- Receipt -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="تنظیمات رسید" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
+                        <TextBlock Text="{loc:Localize 'تنظیمات رسید'}" FontSize="16" FontWeight="Bold" Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="4">
-                                <TextBlock Text="سربرگ رسید" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'سربرگ رسید'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="ReceiptHeaderBox"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Margin="4">
-                                <TextBlock Text="پیام انتهای رسید" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
+                                <TextBlock Text="{loc:Localize 'پیام انتهای رسید'}" FontSize="12" Foreground="#FF888888" Margin="0,0,0,4"/>
                                 <TextBox x:Name="ReceiptFooterBox"/>
                             </StackPanel>
                         </Grid>
@@ -150,12 +155,12 @@
             <!-- Backup -->
                 <Border Style="{StaticResource CardBorder}" Padding="22">
                     <StackPanel>
-                        <TextBlock Text="میانبرها و پشتیبان" FontSize="16" FontWeight="Bold"
+                        <TextBlock Text="{loc:Localize 'میانبرها و پشتیبان'}" FontSize="16" FontWeight="Bold"
                                    Foreground="#FF0078D4" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="تنظیم میانبرها" Style="{StaticResource PrimaryButton}" Margin="0,0,8,0"
+                            <Button Content="{loc:Localize 'تنظیم میانبرها'}" Style="{StaticResource PrimaryButton}" Margin="0,0,8,0"
                                     Click="Shortcuts_Click"/>
-                            <Button Content="پشتیبان‌گیری" Style="{StaticResource SuccessButton}" Margin="0,0,8,0"
+                            <Button Content="{loc:Localize 'پشتیبان‌گیری'}" Style="{StaticResource SuccessButton}" Margin="0,0,8,0"
                                     Click="Backup_Click"/>
                         </StackPanel>
                     </StackPanel>
@@ -167,7 +172,7 @@
                            Visibility="Collapsed"/>
 
                 <!-- Single Apply Button -->
-                <Button Content="ذخیره و اعمال تنظیمات" Style="{StaticResource PrimaryButton}"
+                <Button Content="{loc:Localize 'ذخیره و اعمال تنظیمات'}" Style="{StaticResource PrimaryButton}"
                         HorizontalAlignment="Center" Margin="0,16,0,20" Padding="40,14"
                         FontSize="16" Click="Apply_Click"/>
             </StackPanel>

@@ -32,6 +32,7 @@ public partial class SettingsView : UserControl
         HighContrastCheck.IsChecked = _vm.IsHighContrast;
         AddModeCombo.SelectedIndex = _vm.AddModeIndex;
         ProfileCombo.SelectedIndex = _vm.SelectedProfileIndex;
+        LanguageChoice.SelectedValue = _vm.InterfaceLanguage;
     }
 
     private static int GetFontSizeIndex(double size) => size switch
@@ -64,6 +65,7 @@ public partial class SettingsView : UserControl
         _vm.ReceiptHeader = ReceiptHeaderBox.Text ?? "";
         _vm.ReceiptFooter = ReceiptFooterBox.Text ?? "";
 
+        _vm.InterfaceLanguage = LanguageChoice.SelectedLanguage;
         _vm.SaveAndApply();
 
         StatusLabel.Text = _vm.StatusMessage;

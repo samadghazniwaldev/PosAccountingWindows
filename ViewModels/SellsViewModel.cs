@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -42,7 +43,7 @@ public partial class SellsViewModel : ObservableObject
 
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     partial void OnSearchTextChanged(string value) { ApplyFilter(); }
@@ -74,7 +75,7 @@ public partial class SellsViewModel : ObservableObject
             SelectedSaleItems.Clear();
             foreach (var i in items) SelectedSaleItems.Add(i);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -104,6 +105,6 @@ public partial class SellsViewModel : ObservableObject
             }
             LoadData();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 }

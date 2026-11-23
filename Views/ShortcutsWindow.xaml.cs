@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.IO;
 using System.Windows;
@@ -40,7 +41,7 @@ public partial class ShortcutsWindow : Window
                 });
             }
             ShortcutsManager.SaveShortcuts(shortcuts);
-            MessageBox.Show("ذخیره شد", "موفق", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Translate("ذخیره شد"), Translate("موفق"), MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 
@@ -50,6 +51,6 @@ public partial class ShortcutsWindow : Window
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             "PosAccountingApp", "shortcuts.json"));
         LoadShortcuts();
-        MessageBox.Show("بازگشت به پیش‌فرض", "موفق", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show(Translate("بازگشت به پیش‌فرض"), Translate("موفق"), MessageBoxButton.OK, MessageBoxImage.Information);
     }
 }

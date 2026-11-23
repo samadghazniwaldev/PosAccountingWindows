@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,12 +24,12 @@ public partial class ChequesView : UserControl
         if (DataContext is ChequesViewModel vm)
         {
             _vm = vm;
-            PagedGrid.SetTitle("لیست چک‌ها");
+            PagedGrid.SetTitle(Translate("لیست چک‌ها"));
             PagedGrid.SetColumns(
-                ("ChequeNumber", "شماره چک", 120), ("BankName", "بانک", 100),
-                ("Amount", "مبلغ", 120), ("DueDate", "سررسید", 100),
-                ("PayerName", "صاحب چک", 150), ("Status", "وضعیت", 80));
-            PagedGrid.SetHeaders("شماره چک", "بانک", "مبلغ", "سررسید", "صاحب چک", "وضعیت");
+                ("ChequeNumber", Translate("شماره چک"), 120), ("BankName", Translate("بانک"), 100),
+                ("Amount", Translate("مبلغ"), 120), ("DueDate", Translate("سررسید"), 100),
+                ("PayerName", Translate("صاحب چک"), 150), ("Status", Translate("وضعیت"), 80));
+            PagedGrid.SetHeaders(Translate("شماره چک"), Translate("بانک"), Translate("مبلغ"), Translate("سررسید"), Translate("صاحب چک"), Translate("وضعیت"));
             PagedGrid.ItemDoubleClicked += OnItemDoubleClicked;
             RefreshGrid();
         }
@@ -40,7 +41,7 @@ public partial class ChequesView : UserControl
         var table = new DataTable();
         table.Columns.Add("ChequeNumber"); table.Columns.Add("BankName");
         table.Columns.Add("Amount"); table.Columns.Add("DueDate");
-        table.Columns.Add("PayerName"); table.Columns.Add("Status");
+        table.Columns.Add("PayerName"); table.Columns.Add("Status", typeof(object));
         table.Columns.Add("Id", typeof(int));
         foreach (var c in _vm.Cheques)
             table.Rows.Add(c.ChequeNumber, c.BankName, c.Amount, c.DueDate.ToString("yyyy/MM/dd"), c.PayerName, c.Status, c.Id);
@@ -51,7 +52,7 @@ public partial class ChequesView : UserControl
     {
         if (item is DataRow row)
         {
-            var win = new DetailEditWindow($"چک: {row["ChequeNumber"]}", row, "Cheque");
+            var win = new DetailEditWindow(Format("چک: {0}", row["ChequeNumber"]), row, "Cheque");
             win.Owner = Window.GetWindow(this);
             if (win.ShowDialog() == true) RefreshGrid();
         }

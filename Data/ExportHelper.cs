@@ -1,8 +1,10 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.IO;
 using System.Windows;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using PosAccountingApp.Converters;
 using Xlsx = DocumentFormat.OpenXml;
 using XlsxSp = DocumentFormat.OpenXml.Spreadsheet;
 using XlsxPk = DocumentFormat.OpenXml.Packaging;
@@ -11,6 +13,9 @@ namespace PosAccountingApp.Data;
 
 public static class ExportHelper
 {
+    private static string DisplayValue(object? value) =>
+        value is Enum item ? EnumToPersianConverter.TranslateEnum(item) : value?.ToString() ?? "";
+
     public static void ExportToExcel(DataTable table, string title)
     {
         var dialog = new Microsoft.Win32.SaveFileDialog
@@ -35,7 +40,7 @@ public static class ExportHelper
         var headerRow = new XlsxSp.Row { RowIndex = 1 };
         for (int i = 0; i < table.Columns.Count; i++)
         {
-            var text = table.Columns[i].ColumnName;
+            var text = table.Columns[i].Caption;
             sstPart.SharedStringTable.AppendChild(new XlsxSp.SharedStringItem(new XlsxSp.Text(text)));
             var cell = new XlsxSp.Cell
             {
@@ -53,7 +58,7 @@ public static class ExportHelper
             var row = new XlsxSp.Row { RowIndex = (uint)(r + 2) };
             for (int c = 0; c < table.Columns.Count; c++)
             {
-                var text = table.Rows[r][c]?.ToString() ?? "";
+                var text = DisplayValue(table.Rows[r][c]);
                 sstPart.SharedStringTable.AppendChild(new XlsxSp.SharedStringItem(new XlsxSp.Text(text)));
                 var cell = new XlsxSp.Cell
                 {
@@ -72,7 +77,7 @@ public static class ExportHelper
         wsPart.Worksheet.Save();
         wb.Workbook.Save();
 
-        MessageBox.Show($"فایل اکسل ذخیره شد:\n{dialog.FileName}", "خروجی", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show(Format("فایل اکسل ذخیره شد:\n{0}", dialog.FileName), Translate("خروجی"), MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     public static void ExportToPdf(DataTable table, string title)
@@ -96,18 +101,18 @@ public static class ExportHelper
 
         var titlePara = new Paragraph(title, titleFont) { Alignment = Element.ALIGN_RIGHT };
         doc.Add(titlePara);
-        doc.Add(new Paragraph($"تاریخ چاپ: {DateTime.Now:yyyy/MM/dd HH:mm}", new iTextSharp.text.Font(bf, 9)) { Alignment = Element.ALIGN_RIGHT });
+        doc.Add(new Paragraph(Format("تاریخ چاپ: {0:yyyy/MM/dd HH:mm}", DateTime.Now), new iTextSharp.text.Font(bf, 9)) { Alignment = Element.ALIGN_RIGHT });
         doc.Add(new Paragraph(" "));
 
         var pdfTable = new PdfPTable(table.Columns.Count)
         {
-            RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+            RunDirection = IsEnglish ? PdfWriter.RUN_DIRECTION_LTR : PdfWriter.RUN_DIRECTION_RTL,
             WidthPercentage = 100
         };
 
         foreach (DataColumn col in table.Columns)
         {
-            pdfTable.AddCell(new PdfPCell(new Phrase(col.ColumnName, headerFont))
+            pdfTable.AddCell(new PdfPCell(new Phrase(col.Caption, headerFont))
             { BackgroundColor = headerBg, HorizontalAlignment = Element.ALIGN_CENTER, Padding = 6 });
         }
 
@@ -115,7 +120,7 @@ public static class ExportHelper
         {
             foreach (var item in row.ItemArray)
             {
-                pdfTable.AddCell(new PdfPCell(new Phrase(item?.ToString() ?? "", cellFont))
+                pdfTable.AddCell(new PdfPCell(new Phrase(DisplayValue(item), cellFont))
                 { HorizontalAlignment = Element.ALIGN_RIGHT, Padding = 5 });
             }
         }
@@ -123,7 +128,7 @@ public static class ExportHelper
         doc.Add(pdfTable);
         doc.Close();
 
-        MessageBox.Show($"فایل PDF ذخیره شد:\n{dialog.FileName}", "خروجی", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show(Format("فایل PDF ذخیره شد:\n{0}", dialog.FileName), Translate("خروجی"), MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     public static void PrintTable(DataTable table, string title)
@@ -140,22 +145,22 @@ public static class ExportHelper
         var headerBg = new BaseColor(0, 120, 212);
 
         doc.Add(new Paragraph(title, titleFont) { Alignment = Element.ALIGN_RIGHT });
-        doc.Add(new Paragraph($"تاریخ: {DateTime.Now:yyyy/MM/dd HH:mm}", new iTextSharp.text.Font(bf, 8)) { Alignment = Element.ALIGN_RIGHT });
+        doc.Add(new Paragraph(Format("تاریخ: {0:yyyy/MM/dd HH:mm}", DateTime.Now), new iTextSharp.text.Font(bf, 8)) { Alignment = Element.ALIGN_RIGHT });
         doc.Add(new Paragraph(" "));
 
         var pdfTable = new PdfPTable(table.Columns.Count)
         {
-            RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+            RunDirection = IsEnglish ? PdfWriter.RUN_DIRECTION_LTR : PdfWriter.RUN_DIRECTION_RTL,
             WidthPercentage = 100
         };
 
         foreach (DataColumn col in table.Columns)
-            pdfTable.AddCell(new PdfPCell(new Phrase(col.ColumnName, headerFont))
+            pdfTable.AddCell(new PdfPCell(new Phrase(col.Caption, headerFont))
             { BackgroundColor = headerBg, HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5 });
 
         foreach (DataRow row in table.Rows)
             foreach (var item in row.ItemArray)
-                pdfTable.AddCell(new PdfPCell(new Phrase(item?.ToString() ?? "", cellFont))
+                pdfTable.AddCell(new PdfPCell(new Phrase(DisplayValue(item), cellFont))
                 { HorizontalAlignment = Element.ALIGN_RIGHT, Padding = 4 });
 
         doc.Add(pdfTable);

@@ -1,15 +1,17 @@
 <Window x:Class="PosAccountingApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:PosAccountingApp.Resources"
         xmlns:vm="clr-namespace:PosAccountingApp.ViewModels"
         xmlns:views="clr-namespace:PosAccountingApp.Views"
         xmlns:conv="clr-namespace:PosAccountingApp.Converters"
-        Title="سیستم مدیریت فروش و حسابداری"
+        Title="{loc:Localize 'سیستم مدیریت فروش و حسابداری'}"
         Width="1400" Height="800"
         MinWidth="1000" MinHeight="600"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        FlowDirection="RightToLeft"
+        FlowDirection="{DynamicResource InterfaceDirection}"
+        Language="{DynamicResource InterfaceLanguage}"
         Background="{StaticResource BgBrush}"
         Icon="{StaticResource AppIcon}">
 
@@ -43,7 +45,7 @@
                 <!-- Brand -->
                 <Border DockPanel.Dock="Top" Padding="14,20" Margin="0,0,0,6">
                     <StackPanel>
-                        <TextBlock Text="حسابداری" FontSize="18" FontWeight="Bold"
+                        <TextBlock Text="{loc:Localize 'حسابداری'}" FontSize="18" FontWeight="Bold"
                                    Foreground="{StaticResource AccentBrush}" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="ShopNameLabel" Text="" FontSize="11"
                                    Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center" Margin="0,3,0,0"/>
@@ -57,7 +59,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Border Width="34" Height="34" CornerRadius="17"
                                 Background="{StaticResource AccentBrush}" Margin="0,0,10,0">
-                            <TextBlock Text="م" FontSize="15" FontWeight="Bold" Foreground="White"
+                            <TextBlock Text="{loc:Localize 'م'}" FontSize="15" FontWeight="Bold" Foreground="White"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <StackPanel VerticalAlignment="Center">
@@ -71,43 +73,43 @@
                 <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" MaxHeight="520">
                     <StackPanel Margin="4,0">
                         <RadioButton Style="{StaticResource SidebarButton}" IsChecked="True"
-                                     Content="داشبورد"
+                                     Content="{loc:Localize 'داشبورد'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Dashboard"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="صندوق فروشگاهی (F1)"
+                                     Content="{loc:Localize 'صندوق فروشگاهی (F1)'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="POS"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="کالاها و خدمات (F2)"
+                                     Content="{loc:Localize 'کالاها و خدمات (F2)'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Products"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="دسته‌بندی‌ها (F4)"
+                                     Content="{loc:Localize 'دسته‌بندی‌ها (F4)'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Categories"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="مشتریان"
+                                     Content="{loc:Localize 'مشتریان'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Customers"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="خزانه‌داری و چک (F3)"
+                                     Content="{loc:Localize 'خزانه‌داری و چک (F3)'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Cheques"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="هزینه‌ها"
+                                     Content="{loc:Localize 'هزینه‌ها'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Expenses"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="گزارشات (F9)"
+                                     Content="{loc:Localize 'گزارشات (F9)'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Reports"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="حسابداری"
+                                     Content="{loc:Localize 'حسابداری'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Accounting"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="تامین‌کنندگان"
+                                     Content="{loc:Localize 'تامین‌کنندگان'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Suppliers"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="مدیریت انبار"
+                                     Content="{loc:Localize 'مدیریت انبار'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Inventory"/>
                         <RadioButton Style="{StaticResource SidebarButton}"
-                                     Content="فروش‌ها"
+                                     Content="{loc:Localize 'فروش‌ها'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Sells"/>
                         <RadioButton x:Name="UsersNavBtn" Style="{StaticResource SidebarButton}"
-                                     Content="مدیریت کاربران"
+                                     Content="{loc:Localize 'مدیریت کاربران'}"
                                      Command="{Binding NavigateToCommand}" CommandParameter="Users"
                                      Visibility="Collapsed"/>
                     </StackPanel>
@@ -116,13 +118,13 @@
                 <!-- Bottom -->
                 <StackPanel DockPanel.Dock="Bottom" Margin="4,0,4,12">
                     <RadioButton x:Name="HelpNavBtn" Style="{StaticResource SidebarButton}"
-                                 Content="&#xE897;  راهنما"
+                                 Content="{loc:Localize '&#xE897;  راهنما'}"
                                  Click="Help_Click"/>
                     <RadioButton Style="{StaticResource SidebarButton}"
-                                 Content="&#xE722;  اسکن بارکد"
+                                 Content="{loc:Localize '&#xE722;  اسکن بارکد'}"
                                  Click="ScanBarcode_Click"/>
                     <RadioButton Style="{StaticResource SidebarButton}"
-                                 Content="&#xE713;  تنظیمات"
+                                 Content="{loc:Localize '&#xE713;  تنظیمات'}"
                                  Command="{Binding NavigateToCommand}" CommandParameter="Settings"/>
                 </StackPanel>
                 <Border/>
@@ -148,7 +150,7 @@
                             <TextBlock Text="{Binding StatusMessage}" FontSize="11"
                                        Foreground="{StaticResource BadgeFgBrush}"/>
                         </Border>
-                        <Button Content="&#xE793;  جستجو  (Ctrl+G)"
+                        <Button Content="{loc:Localize '&#xE793;  جستجو  (Ctrl+G)'}"
                                 FontFamily="Vazirmatn, Segoe UI" FontSize="12"
                                 Style="{StaticResource OutlineButton}"
                                 Command="{Binding OpenGlobalSearchCommand}"/>
@@ -165,7 +167,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="F1 صندوق  |  F2 کالا  |  F4 دسته‌بندی  |  F3 چک  |  Ctrl+G جستجو"
+                    <TextBlock Grid.Column="0" Text="{loc:Localize 'F1 صندوق  |  F2 کالا  |  F4 دسته‌بندی  |  F3 چک  |  Ctrl+G جستجو'}"
                                FontSize="11" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="1" Text="{Binding CurrentViewTitle}"
                                FontSize="11" Foreground="{StaticResource AccentBrush}" VerticalAlignment="Center"/>

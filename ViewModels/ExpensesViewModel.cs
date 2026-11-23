@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -32,7 +33,7 @@ public partial class ExpensesViewModel : ObservableObject
             _allExpenses = db.Expenses.AsNoTracking().Where(e => e.IsActive).OrderByDescending(e => e.Date).ToList();
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     partial void OnSearchTextChanged(string value) { ApplyFilter(); }
@@ -60,7 +61,7 @@ public partial class ExpensesViewModel : ObservableObject
             db.SaveChanges();
             IsAddPanelOpen = false; LoadExpenses();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() => IsAddPanelOpen = false;

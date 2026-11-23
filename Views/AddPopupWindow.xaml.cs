@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System;
 using System.IO;
 using System.Windows;
@@ -28,7 +29,7 @@ public partial class AddPopupWindow : Window
         var dialog = new OpenFileDialog
         {
             Filter = "Images|*.jpg;*.jpeg;*.png;*.bmp;*.gif|PDF|*.pdf|All|*.*",
-            Title = "انتخاب فایل پیوست"
+            Title = Translate("انتخاب فایل پیوست")
         };
 
         if (dialog.ShowDialog() == true)
@@ -62,7 +63,7 @@ public partial class AddPopupWindow : Window
     {
         _fileData = null;
         _fileName = string.Empty;
-        FileNameText.Text = "فایلی انتخاب نشده";
+        FileNameText.Text = Translate("فایلی انتخاب نشده");
         PreviewImage.Source = null;
         ImagePreview.Visibility = Visibility.Collapsed;
     }
@@ -77,7 +78,7 @@ public partial class AddPopupWindow : Window
         }
         catch (Exception ex)
         {
-            MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -48,7 +49,7 @@ public partial class LoyaltyViewModel : ObservableObject
         }
         catch (Exception ex)
         {
-            ErrorMessage = "خطا در بارگذاری: " + ex.Message;
+            ErrorMessage = Translate("خطا در بارگذاری: ") + ex.Message;
         }
     }
 
@@ -71,7 +72,7 @@ public partial class LoyaltyViewModel : ObservableObject
             Transactions.Clear();
             foreach (var t in history) Transactions.Add(t);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -81,12 +82,12 @@ public partial class LoyaltyViewModel : ObservableObject
         {
             if (SelectedCustomer == null || RedeemPointsAmount <= 0) return;
             _loyaltyService.RedeemPoints(SelectedCustomer.Id, RedeemPointsAmount,
-                string.IsNullOrEmpty(RedeemDescription) ? "استفاده از امتیاز" : RedeemDescription);
+                string.IsNullOrEmpty(RedeemDescription) ? Translate("استفاده از امتیاز") : RedeemDescription);
             RedeemPointsAmount = 0;
             RedeemDescription = string.Empty;
             LoadData();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 }
 

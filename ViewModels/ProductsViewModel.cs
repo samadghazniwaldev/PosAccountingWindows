@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -37,7 +38,7 @@ public partial class ProductsViewModel : ObservableObject
             _allProducts = db.Products.AsNoTracking().Where(p => p.IsActive).OrderBy(p => p.Title).ToList();
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     public void LoadCategories()
@@ -84,7 +85,7 @@ public partial class ProductsViewModel : ObservableObject
             db.SaveChanges();
             IsAddPanelOpen = false; ClearForm(); LoadProducts(); LoadCategories();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -98,7 +99,7 @@ public partial class ProductsViewModel : ObservableObject
             if (found != null) { found.IsActive = false; db.SaveChanges(); }
             LoadProducts();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() { IsAddPanelOpen = false; ClearForm(); }

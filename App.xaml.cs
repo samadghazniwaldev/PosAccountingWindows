@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.IO;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ public partial class App : Application
 
         try
         {
+            PosAccountingApp.Resources.Localizer.Apply(AppSettings.Load().InterfaceLanguage);
             Data.ThemeManager.ApplyTheme(Data.AppTheme.OceanBlue);
             Data.DatabaseInitializer.Initialize();
 
@@ -88,8 +90,8 @@ public partial class App : Application
         try
         {
             MessageBox.Show(
-                $"خطا: {real.GetType().Name}\n\n{real.Message}",
-                "خطای برنامه",
+                Format("خطا: {0}\n\n{1}", real.GetType().Name, real.Message),
+                Translate("خطای برنامه"),
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
         catch { }
@@ -133,6 +135,7 @@ public class AppSettings
     public decimal VatPercentage { get; set; } = 10;
     public decimal CommissionPercentage { get; set; } = 2;
     public bool IsSetupComplete { get; set; }
+    public string InterfaceLanguage { get; set; } = "prs";
     public string SelectedTheme { get; set; } = "OceanBlue";
     public double FontSize { get; set; } = 14;
     public bool IsHighContrast { get; set; }

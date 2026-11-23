@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -30,7 +31,7 @@ public partial class CustomersViewModel : ObservableObject
             _allCustomers = db.Customers.AsNoTracking().Where(c => c.IsActive).OrderBy(c => c.Name).ToList();
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     partial void OnSearchTextChanged(string value) { ApplyFilter(); }
@@ -59,7 +60,7 @@ public partial class CustomersViewModel : ObservableObject
             IsAddPanelOpen = false; EditName = string.Empty; EditPhone = string.Empty; EditCreditLimit = 0;
             LoadCustomers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -73,7 +74,7 @@ public partial class CustomersViewModel : ObservableObject
             if (found != null) { found.IsActive = false; db.SaveChanges(); }
             LoadCustomers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() { IsAddPanelOpen = false; EditName = string.Empty; EditPhone = string.Empty; EditCreditLimit = 0; }

@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PosAccountingApp.Models;
@@ -7,10 +8,10 @@ namespace PosAccountingApp.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty] private ObservableObject _currentView;
-    [ObservableProperty] private string _currentViewTitle = "داشبورد";
-    [ObservableProperty] private string _currentUser = "مدیر";
+    [ObservableProperty] private string _currentViewTitle = Translate("داشبورد");
+    [ObservableProperty] private string _currentUser = Translate("مدیر");
     [ObservableProperty] private bool _isDarkTheme;
-    [ObservableProperty] private string _statusMessage = "آماده";
+    [ObservableProperty] private string _statusMessage = Translate("آماده");
 
     public DashboardViewModel DashboardVm { get; } = new();
     public ProductsViewModel ProductsVm { get; } = new();
@@ -38,11 +39,11 @@ public partial class MainViewModel : ObservableObject
         {
             var roleNames = new Dictionary<UserRole, string>
             {
-                { UserRole.SuperAdmin, "مدیر ارشد" },
-                { UserRole.Admin, "مدیر" },
-                { UserRole.Cashier, "صندوقدار" },
-                { UserRole.Broker, "مشاور" },
-                { UserRole.Accountant, "حسابدار" }
+                { UserRole.SuperAdmin, Translate("مدیر ارشد") },
+                { UserRole.Admin, Translate("مدیر") },
+                { UserRole.Cashier, Translate("صندوقدار") },
+                { UserRole.Broker, Translate("مشاور") },
+                { UserRole.Accountant, Translate("حسابدار") }
             };
             CurrentUser = AppSettings.CurrentUser.Name;
             if (roleNames.TryGetValue(AppSettings.CurrentUser.Role, out var r))
@@ -62,48 +63,48 @@ public partial class MainViewModel : ObservableObject
         switch (viewName)
         {
             case "Dashboard":
-                CurrentView = DashboardVm; CurrentViewTitle = "داشبورد";
+                CurrentView = DashboardVm; CurrentViewTitle = Translate("داشبورد");
                 DashboardVm.LoadData(); break;
             case "Products":
-                CurrentView = ProductsVm; CurrentViewTitle = "کالاها و خدمات";
+                CurrentView = ProductsVm; CurrentViewTitle = Translate("کالاها و خدمات");
                 ProductsVm.LoadProducts();
                 ProductsVm.LoadCategories(); break;
             case "Customers":
-                CurrentView = CustomersVm; CurrentViewTitle = "مشتریان";
+                CurrentView = CustomersVm; CurrentViewTitle = Translate("مشتریان");
                 CustomersVm.LoadCustomers(); break;
             case "POS":
-                CurrentView = PosVm; CurrentViewTitle = "صندوق فروشگاهی"; break;
+                CurrentView = PosVm; CurrentViewTitle = Translate("صندوق فروشگاهی"); break;
             case "Cheques":
-                CurrentView = ChequesVm; CurrentViewTitle = "خزانه‌داری و چک";
+                CurrentView = ChequesVm; CurrentViewTitle = Translate("خزانه‌داری و چک");
                 ChequesVm.LoadCheques(); break;
             case "Expenses":
-                CurrentView = ExpensesVm; CurrentViewTitle = "هزینه‌ها";
+                CurrentView = ExpensesVm; CurrentViewTitle = Translate("هزینه‌ها");
                 ExpensesVm.LoadExpenses(); break;
             case "Reports":
-                CurrentView = ReportsVm; CurrentViewTitle = "گزارشات"; break;
+                CurrentView = ReportsVm; CurrentViewTitle = Translate("گزارشات"); break;
             case "Users":
-                CurrentView = UsersVm; CurrentViewTitle = "مدیریت کاربران";
+                CurrentView = UsersVm; CurrentViewTitle = Translate("مدیریت کاربران");
                 UsersVm.LoadUsers(); break;
             case "Categories":
             case "AddCategory":
-                CurrentView = CategoriesVm; CurrentViewTitle = "دسته‌بندی کالاها";
+                CurrentView = CategoriesVm; CurrentViewTitle = Translate("دسته‌بندی کالاها");
                 CategoriesVm.LoadCategories();
                 if (viewName == "AddCategory") CategoriesVm.IsAddPanelOpen = true;
                 break;
             case "Accounting":
-                CurrentView = AccountingVm; CurrentViewTitle = "حسابداری";
+                CurrentView = AccountingVm; CurrentViewTitle = Translate("حسابداری");
                 AccountingVm.LoadData(); break;
             case "Suppliers":
-                CurrentView = SupplierVm; CurrentViewTitle = "\u062A\u0627\u0645\u06CC\u0646\u200C\u06A9\u0646\u0646\u062F\u06AF\u0627\u0646";
+                CurrentView = SupplierVm; CurrentViewTitle = Translate("\u062A\u0627\u0645\u06CC\u0646\u200C\u06A9\u0646\u0646\u062F\u06AF\u0627\u0646");
                 SupplierVm.LoadSuppliers(); break;
             case "Inventory":
-                CurrentView = InventoryVm; CurrentViewTitle = "\u0645\u062F\u06CC\u0631\u06CC\u062A \u0627\u0646\u0628\u0627\u0631";
+                CurrentView = InventoryVm; CurrentViewTitle = Translate("\u0645\u062F\u06CC\u0631\u06CC\u062A \u0627\u0646\u0628\u0627\u0631");
                 InventoryVm.LoadData(); break;
             case "Sells":
-                CurrentView = SellsVm; CurrentViewTitle = "\u0641\u0631\u0648\u0634\u200C\u0647\u0627";
+                CurrentView = SellsVm; CurrentViewTitle = Translate("\u0641\u0631\u0648\u0634\u200C\u0647\u0627");
                 SellsVm.LoadData(); break;
             case "Settings":
-                CurrentView = SettingsVm; CurrentViewTitle = "تنظیمات"; break;
+                CurrentView = SettingsVm; CurrentViewTitle = Translate("تنظیمات"); break;
         }
     }
 

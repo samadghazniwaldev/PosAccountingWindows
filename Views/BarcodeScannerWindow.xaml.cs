@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -35,11 +36,11 @@ public partial class BarcodeScannerWindow : Window
     private void StartCamBtn_Click(object sender, RoutedEventArgs e)
     {
         MessageBox.Show(
-            "برای استفاده از دوربین، کتابخانه OpenCvSharp را نصب کنید:\n\n" +
+            Translate("برای استفاده از دوربین، کتابخانه OpenCvSharp را نصب کنید:\n\n") +
             "dotnet add package OpenCvSharp4\n" +
             "dotnet add package OpenCvSharp4.runtime.win\n\n" +
-            "یا از اسکنر USB یا ورود دستی استفاده کنید.",
-            "دوربین", MessageBoxButton.OK, MessageBoxImage.Information);
+            Translate("یا از اسکنر USB یا ورود دستی استفاده کنید."),
+            Translate("دوربین"), MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private void StopCamBtn_Click(object sender, RoutedEventArgs e)

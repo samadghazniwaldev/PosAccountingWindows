@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +31,7 @@ public partial class DetailEditWindow : Window
 
             var header = new TextBlock
             {
-                Text = col.ColumnName,
+                Text = col.Caption,
                 FontSize = 12,
                 Foreground = (System.Windows.Media.Brush)FindResource("TextSecondaryBrush"),
                 Margin = new Thickness(0, 0, 0, 4)
@@ -102,20 +103,20 @@ public partial class DetailEditWindow : Window
                 else if (entityType == "Sale")
                 {
                     // Sales are read-only
-                    MessageBox.Show("فاکتورها قابل ویرایش نیستند", "توجه", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(Translate("فاکتورها قابل ویرایش نیستند"), Translate("توجه"), MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
             }
 
             db.SaveChanges();
-            MessageBox.Show("ذخیره شد", "موفق", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Translate("ذخیره شد"), Translate("موفق"), MessageBoxButton.OK, MessageBoxImage.Information);
             this.DialogResult = true;
             this.Close();
         }
         catch (Exception ex)
         {
             App.LogError(ex);
-            MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
@@ -150,7 +151,7 @@ public partial class DetailEditWindow : Window
 
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
-        var result = MessageBox.Show("آیا از حذف این مورد اطمینان دارید؟", "تایید حذف",
+        var result = MessageBox.Show(Translate("آیا از حذف این مورد اطمینان دارید؟"), Translate("تایید حذف"),
             MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
         if (result != MessageBoxResult.Yes) return;
@@ -186,14 +187,14 @@ public partial class DetailEditWindow : Window
                 if (s != null) { s.IsActive = false; db.SaveChanges(); }
             }
 
-            MessageBox.Show("حذف شد", "موفق", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Translate("حذف شد"), Translate("موفق"), MessageBoxButton.OK, MessageBoxImage.Information);
             this.DialogResult = true;
             this.Close();
         }
         catch (Exception ex)
         {
             App.LogError(ex);
-            MessageBox.Show("خطا: " + ex.Message, "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Translate("خطا: ") + ex.Message, Translate("خطا"), MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

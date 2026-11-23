@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -43,7 +44,7 @@ public partial class SupplierViewModel : ObservableObject
         }
         catch (Exception ex)
         {
-            ErrorMessage = "خطا در بارگذاری تامین‌کنندگان: " + ex.Message;
+            ErrorMessage = Translate("خطا در بارگذاری تامین‌کنندگان: ") + ex.Message;
         }
     }
 
@@ -77,7 +78,7 @@ public partial class SupplierViewModel : ObservableObject
             ClearForm();
             LoadSuppliers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -91,7 +92,7 @@ public partial class SupplierViewModel : ObservableObject
             LedgerEntries.Clear();
             foreach (var e in ledger) LedgerEntries.Add(e);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -110,12 +111,12 @@ public partial class SupplierViewModel : ObservableObject
         {
             if (SelectedSupplier == null || PaymentAmount <= 0) return;
             _supplierService.RecordPayment(SelectedSupplier.Id, PaymentAmount,
-                string.IsNullOrEmpty(PaymentDescription) ? "پرداخت" : PaymentDescription);
+                string.IsNullOrEmpty(PaymentDescription) ? Translate("پرداخت") : PaymentDescription);
             IsPaymentPanelOpen = false;
             LoadSuppliers();
             SelectSupplier(SelectedSupplier);
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -128,7 +129,7 @@ public partial class SupplierViewModel : ObservableObject
             if (SelectedSupplier?.Id == supplier.Id) SelectedSupplier = null;
             LoadSuppliers();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]

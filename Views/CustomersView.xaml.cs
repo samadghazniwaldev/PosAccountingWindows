@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,12 +24,12 @@ public partial class CustomersView : UserControl
         if (DataContext is CustomersViewModel vm)
         {
             _vm = vm;
-            PagedGrid.SetTitle("لیست مشتریان");
+            PagedGrid.SetTitle(Translate("لیست مشتریان"));
             PagedGrid.SetColumns(
-                ("Name", "نام", 200), ("Phone", "تلفن", 140),
-                ("Balance", "موجودی حساب", 120), ("CreditLimit", "سقف اعتبار", 120),
-                ("LoyaltyPoints", "امتیاز", 80));
-            PagedGrid.SetHeaders("نام", "تلفن", "موجودی حساب", "سقف اعتبار", "امتیاز");
+                ("Name", Translate("نام"), 200), ("Phone", Translate("تلفن"), 140),
+                ("Balance", Translate("موجودی حساب"), 120), ("CreditLimit", Translate("سقف اعتبار"), 120),
+                ("LoyaltyPoints", Translate("امتیاز"), 80));
+            PagedGrid.SetHeaders(Translate("نام"), Translate("تلفن"), Translate("موجودی حساب"), Translate("سقف اعتبار"), Translate("امتیاز"));
             PagedGrid.ItemDoubleClicked += OnItemDoubleClicked;
             RefreshGrid();
         }
@@ -50,7 +51,7 @@ public partial class CustomersView : UserControl
     {
         if (item is DataRow row)
         {
-            var win = new DetailEditWindow($"مشتری: {row["Name"]}", row, "Customer");
+            var win = new DetailEditWindow(Format("مشتری: {0}", row["Name"]), row, "Customer");
             win.Owner = Window.GetWindow(this);
             if (win.ShowDialog() == true) RefreshGrid();
         }

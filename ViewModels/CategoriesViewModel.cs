@@ -1,3 +1,4 @@
+using static PosAccountingApp.Resources.Localizer;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -52,7 +53,7 @@ public partial class CategoriesViewModel : ObservableObject
             foreach (var c in _allCategories.Where(c => !c.ParentCategoryId.HasValue)) ParentCategories.Add(c);
             ApplyFilter();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     partial void OnSearchTextChanged(string value) { ApplyFilter(); }
@@ -80,7 +81,7 @@ public partial class CategoriesViewModel : ObservableObject
             db.SaveChanges();
             IsAddPanelOpen = false; LoadCategories();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand]
@@ -94,7 +95,7 @@ public partial class CategoriesViewModel : ObservableObject
             if (found != null) { found.IsActive = false; db.SaveChanges(); }
             LoadCategories();
         }
-        catch (Exception ex) { ErrorMessage = "خطا: " + ex.Message; }
+        catch (Exception ex) { ErrorMessage = Translate("خطا: ") + ex.Message; }
     }
 
     [RelayCommand] private void CancelEdit() { IsAddPanelOpen = false; EditName = string.Empty; EditDescription = string.Empty; EditIcon = "\uE74C"; EditSortOrder = 0; EditParentCategory = null; }
