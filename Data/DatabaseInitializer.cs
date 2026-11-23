@@ -1,4 +1,6 @@
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using PosAccountingApp.Models;
@@ -61,5 +63,33 @@ public static class DatabaseInitializer
     {
         using var db = CreateDbContext();
         db.Database.EnsureCreated();
+
+        const string adminName = "admin";
+        const string renamedAdminName = "مدیر ارشد";
+        var passwordHash = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes("admin123")))
+            .ToLowerInvariant();
+
+        using var transaction = db.Database.BeginTransaction();
+        db.Database.ExecuteSqlInterpolated($"""
+            UPDATE Users
+            SET Name = {adminName}
+            WHERE Name = {renamedAdminName}
+                AND Role = {(int)UserRole.Admin}
+                AND PinCodeHash = {passwordHash}
+                AND NOT EXISTS (SELECT 1 FROM Users WHERE Name = {adminName});
+            """);
+        db.Database.ExecuteSqlInterpolated($"""
+            UPDATE Users
+            SET Role = {(int)UserRole.SuperAdmin}
+            WHERE Name = {adminName}
+                AND Role = {(int)UserRole.Admin}
+                AND PinCodeHash = {passwordHash};
+            """);
+        db.Database.ExecuteSqlInterpolated($"""
+            INSERT INTO Users (Name, PinCodeHash, Role, IsActive)
+            SELECT {adminName}, {passwordHash}, {(int)UserRole.SuperAdmin}, 1
+            WHERE NOT EXISTS (SELECT 1 FROM Users WHERE Name = {adminName});
+            """);
+        transaction.Commit();
     }
 }
