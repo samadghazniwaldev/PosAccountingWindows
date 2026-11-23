@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
 using PosAccountingApp.Models;
 using PosAccountingApp.Views;
 
@@ -38,12 +39,19 @@ public partial class App : Application
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "PosAccountingApp", "settings.json");
 
-            if (!File.Exists(settingsPath))
+            bool hasUsers;
+            using (var db = Data.DatabaseInitializer.CreateDbContext())
+            {
+                hasUsers = db.Users.IgnoreQueryFilters().Any();
+            }
+
+            if (!File.Exists(settingsPath) || !hasUsers)
             {
                 var setupWindow = new SetupWindow();
-                setupWindow.ShowDialog();
-                if (!File.Exists(settingsPath)) { Shutdown(); return; }
+                if (setupWindow.ShowDialog() != true) { Shutdown(); return; }
             }
+
+            Data.DatabaseInitializer.SeedSuperAdmin();
 
             var loginWindow = new LoginWindow();
             loginWindow.ShowDialog();

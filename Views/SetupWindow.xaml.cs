@@ -41,11 +41,16 @@ public partial class SetupWindow : Window
             DatabaseInitializer.Initialize();
             using var db = DatabaseInitializer.CreateDbContext();
 
-            var admin = db.Users.First(u => u.Id == 1);
+            var admin = db.Users.FirstOrDefault(u => u.Role == UserRole.SuperAdmin);
+            if (admin == null)
+            {
+                admin = new User { Name = "مدیر", Role = UserRole.SuperAdmin };
+                db.Users.Add(admin);
+            }
             admin.PinCodeHash = ComputeSha256(PinBox.Text);
-            admin.Name = "مدیر";
 
-            db.Warehouses.Add(new Warehouse { Name = "انبار اصلی", Location = "محل فروشگاه" });
+            if (!db.Warehouses.Any())
+                db.Warehouses.Add(new Warehouse { Name = ShopNameBox.Text.Trim(), Location = AddressBox.Text });
             db.SaveChanges();
 
             var settingsDir = Path.Combine(

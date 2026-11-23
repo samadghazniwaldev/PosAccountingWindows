@@ -118,19 +118,6 @@ public partial class SettingsViewModel : ObservableObject
         }
     }
 
-    public void SeedSampleData()
-    {
-        try
-        {
-            SeedData.Seed();
-            StatusMessage = "\u062F\u0627\u062F\u0647 \u0646\u0645\u0648\u0646\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u06CC\u062C\u0627\u062F \u0634\u062F";
-        }
-        catch (Exception ex)
-        {
-            StatusMessage = "\u062E\u0637\u0627: " + ex.Message;
-        }
-    }
-
     public void BackupDb()
     {
         var dbPath = Path.Combine(

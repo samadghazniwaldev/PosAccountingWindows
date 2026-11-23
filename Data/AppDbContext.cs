@@ -90,62 +90,6 @@ public class AppDbContext : DbContext
             e.HasIndex(v => v.EngineNumber).IsUnique().HasFilter("[EngineNumber] IS NOT NULL AND [EngineNumber] != ''");
         });
 
-        // Seed default SuperAdmin user (PIN: 1234)
-        modelBuilder.Entity<User>().HasData(new User
-        {
-            Id = 1,
-            Name = "مدیر سیستم",
-            PinCodeHash = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-            Role = UserRole.SuperAdmin,
-            IsActive = true
-        });
-
-        // Seed default warehouse
-        modelBuilder.Entity<Warehouse>().HasData(new Warehouse
-        {
-            Id = 1,
-            Name = "انبار مرکزی",
-            Location = "محل اصلی فروشگاه",
-            IsActive = true
-        });
-
-        // Seed chart of accounts (حساب‌ها)
-        modelBuilder.Entity<Account>().HasData(
-            // Assets
-            new Account { Id = 1, Code = "1100", Name = "صندوق نقدی", Type = AccountType.Asset, IsActive = true },
-            new Account { Id = 2, Code = "1200", Name = "بانک", Type = AccountType.Asset, IsActive = true },
-            new Account { Id = 3, Code = "1300", Name = "حساب‌های دریافتنی", Type = AccountType.Asset, IsActive = true },
-            new Account { Id = 4, Code = "1400", Name = "موجودی کالا", Type = AccountType.Asset, IsActive = true },
-            // Liabilities
-            new Account { Id = 5, Code = "2100", Name = "حساب‌های پرداختنی", Type = AccountType.Liability, IsActive = true },
-            new Account { Id = 6, Code = "2200", Name = "بدهی بانکی", Type = AccountType.Liability, IsActive = true },
-            // Equity
-            new Account { Id = 7, Code = "3100", Name = "سرمایه", Type = AccountType.Equity, IsActive = true },
-            new Account { Id = 8, Code = "3200", Name = "سود انباشته", Type = AccountType.Equity, IsActive = true },
-            // Revenue
-            new Account { Id = 9, Code = "4100", Name = "فروش کالا", Type = AccountType.Revenue, IsActive = true },
-            new Account { Id = 10, Code = "4200", Name = "درآمد خدمات", Type = AccountType.Revenue, IsActive = true },
-            // Expenses
-            new Account { Id = 11, Code = "5100", Name = "بهای تمام شده کالای فروش رفته", Type = AccountType.Expense, IsActive = true },
-            new Account { Id = 12, Code = "5200", Name = "هزینه‌های اداری", Type = AccountType.Expense, IsActive = true },
-            new Account { Id = 13, Code = "5300", Name = "هزینه اجاره", Type = AccountType.Expense, IsActive = true },
-            new Account { Id = 14, Code = "5400", Name = "هزینه حقوق و دستمزد", Type = AccountType.Expense, IsActive = true }
-        );
-
-        // Seed default loyalty config
-        modelBuilder.Entity<LoyaltyConfig>().HasData(new LoyaltyConfig
-        {
-            Id = 1,
-            BronzeThreshold = 0,
-            SilverThreshold = 1000000,
-            GoldThreshold = 5000000,
-            PointsPer1000Tomans = 10,
-            RedemptionRate = 100,
-            BronzeDiscount = 0,
-            SilverDiscount = 2,
-            GoldDiscount = 5,
-            IsActive = true
-        });
     }
 }
 

@@ -63,33 +63,21 @@ public static class DatabaseInitializer
     {
         using var db = CreateDbContext();
         db.Database.EnsureCreated();
+    }
 
-        const string adminName = "admin";
-        const string renamedAdminName = "مدیر ارشد";
+    public static void SeedSuperAdmin()
+    {
+        const string name = "admin";
         var passwordHash = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes("admin123")))
             .ToLowerInvariant();
 
-        using var transaction = db.Database.BeginTransaction();
-        db.Database.ExecuteSqlInterpolated($"""
-            UPDATE Users
-            SET Name = {adminName}
-            WHERE Name = {renamedAdminName}
-                AND Role = {(int)UserRole.Admin}
-                AND PinCodeHash = {passwordHash}
-                AND NOT EXISTS (SELECT 1 FROM Users WHERE Name = {adminName});
-            """);
-        db.Database.ExecuteSqlInterpolated($"""
-            UPDATE Users
-            SET Role = {(int)UserRole.SuperAdmin}
-            WHERE Name = {adminName}
-                AND Role = {(int)UserRole.Admin}
-                AND PinCodeHash = {passwordHash};
-            """);
+        using var db = CreateDbContext();
         db.Database.ExecuteSqlInterpolated($"""
             INSERT INTO Users (Name, PinCodeHash, Role, IsActive)
-            SELECT {adminName}, {passwordHash}, {(int)UserRole.SuperAdmin}, 1
-            WHERE NOT EXISTS (SELECT 1 FROM Users WHERE Name = {adminName});
+            VALUES ({name}, {passwordHash}, {(int)UserRole.SuperAdmin}, 1)
+            ON CONFLICT (Name) DO UPDATE SET Role = excluded.Role
+            WHERE Users.IsActive = 1 AND Users.Role = {(int)UserRole.Admin}
+                AND Users.PinCodeHash = excluded.PinCodeHash;
             """);
-        transaction.Commit();
     }
 }
